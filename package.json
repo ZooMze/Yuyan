@@ -1,0 +1,67 @@
+{
+  "name": "Yuyan",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "echarts": "^4.1.0",
+    "element-theme-chalk": "^2.9.1",
+    "element-ui": "^2.9.1",
+    "font-awesome": "^4.7.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.12.1",
+    "qs": "^6.5.2",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vue-socket.io": "^2.1.1-b",
+    "vuex": "^3.0.1",
+    "wangeditor": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@vue/cli-plugin-babel": "^3.0.0",
+    "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-service": "^3.0.0",
+    "@vue/eslint-config-standard": "^3.0.0",
+    "babel-plugin-component": "^1.1.1",
+    "element-theme-chalk": "^2.9.1",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "vue-cli-plugin-element": "^1.0.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.17.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

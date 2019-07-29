@@ -1,0 +1,226 @@
+@--color-primary:       #62a303;
+@--color-primary-plain: #eff6e6;
+body {
+  margin:0;
+  padding: 0;
+}
+
+/**
+ * 修改element的基本样式
+ */
+/* 导航组件展开后宽度会出现的问题 */
+#nav.el-menu {
+  border-right-width: 0!important;
+  ul.el-menu.el-menu--inline li{
+    background: #E9EFE8!important;
+  }
+}
+
+/* textarea的默认字体样式 */
+textarea.el-textarea__inner {
+  font-family: '微软雅黑'
+}
+
+.step-tab .el-tabs__item:before {
+  display: block;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  left: -6px;
+  top: 13px;
+  content: "";
+  border-top: 1px solid #E4E7ED;
+  border-right: 1px solid #E4E7ED;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.step-tab .el-tabs__item:first-child:before {
+  display: none;
+}
+.el-tree .el-tree-node__content * {
+  font-size: 14px;
+}
+// .el-input .el-input__inner {
+//   vertical-align: middle;
+// }
+
+/**
+ * nav-layout 的样式
+ */
+.main-container {
+  background: #efefef;
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    height: 55px;
+    background: linear-gradient(to left, #59B493, #207DBC);
+    h1 {
+      display: inline-block;
+      width: 100vw;
+      margin: 0;
+      padding: 0 20px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 55px;
+    }
+    .user-area {
+      display: flex;
+      align-items: center;
+      width: 180px;
+      padding: 20px;
+      color: #fff;
+      img {
+        height: 35px;
+        border: 2px solid #8FC23E;
+        border-radius: 50px;
+      }
+      span {
+        width: 100px;
+        padding: 0 10px;
+        text-align: center;
+      }
+    }
+  }
+  .body {
+    display: flex;
+    justify-content: space-between;
+    height: calc( 100vh - 55px);
+    .left-nav {
+      width: 215px;
+      height: 100%;
+    }
+    .router-container {
+      display: inline-block;
+      margin: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      background: #fff;
+    }
+  }
+}
+/**
+ * 基础组件view样式
+ */
+.view-container {
+  position: relative;
+  width: calc( 100vw - 236px );
+  .el-breadcrumb:first-child {
+    padding: 20px;
+    border-bottom: 1px solid #ececec;
+    font-size: 16px;
+  }
+  .el-breadcrumb:first-child + .right-button {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    padding: 9px 5px;
+    i.fa{
+      margin-right: 5px;
+    }
+  }
+  .view-body {
+    height: calc( 100vh - 150px);
+    padding: 10px;
+    overflow-y: auto;
+  }
+  &.has-foot .view-body {
+    height: calc( 100vh - 198px);
+  }
+  .view-footer {
+    .el-pagination {
+      display: flex;
+      padding: 10px;
+      justify-content: flex-end;
+    }
+  }
+}
+.second-title {
+  margin-bottom: 10px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-left: 5px solid #62a303;
+}
+.input-with-select {
+  min-width: 150px;
+}
+
+
+/**
+ * 页面通用的微调部分
+ */
+.custom-input {
+  .el-input-group__prepend {
+    min-width: 80px;
+    background-color: #fff;
+  }
+  .el-input-group__append {
+    background-color: @--color-primary;
+    & i {
+      color: #fff;
+    }
+  }
+}
+
+
+/**
+ * 快捷类 样式
+ */
+.fill-width {
+  width: 100%!important;
+}
+.fr {
+  float: right;
+}
+.no-data-text {
+  display: block;
+  margin: 5px 0;
+  color: #909399;
+  text-align: center;
+}
+.text-info, .text-info:hover {
+  color: #909399;
+}
+.text-primary, .text-primary:hover {
+  color: #409EFF;
+}
+.text-success, .text-success:hover {
+  color: #67C23A;
+}
+.text-warning, .text-warning:hover {
+  color: #E6A23C;
+}
+.text-danger, .text-danger:hover{
+  color: #F56C6C;
+}
+.align-left-through *{ //穿透
+  text-align: left!important;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.margin-t-10 {
+  margin-top: 10px; 
+}
+.margin-r-10 {
+  margin-right: 10px; 
+}
+.margin-b-10 {
+  margin-bottom: 10px; 
+}
+.margin-l-10 {
+  margin-left: 10px; 
+}
+.el-tree .text-button-wrap {
+  width: 100%!important;
+  height: 26px;
+  line-height: 26px;
+  .el-button {
+    padding: 0;
+  }
+}
