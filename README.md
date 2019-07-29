@@ -28,20 +28,20 @@ yuyanVue
 
 #### 要点
 本框架主要的技术支撑以及使用的插件：
-  Vue.js
-  Vue-Router
-  Vuex
-  Vue CLI v3.0+
-  Webpack
-  Babel ES2015
-  less
-  ElementUI v2.9.0+
-  axios
-  echarts
-  md5
-  wangEditor
-  qs
-  font-awesome
+## Vue.js
+## Vue-Router
+## Vuex
+## Vue CLI v3.0+
+## Webpack
+## Babel ES2015
+## less
+## ElementUI v2.9.0+
+## axios
+## echarts
+## md5
+## wangEditor
+## qs
+## font-awesome
 需配合规范文档食用
 
 #### 安装教程
