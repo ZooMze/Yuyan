@@ -75,7 +75,7 @@
 
 &emsp;font-awesome
 
-需配合规范文档食用
+
 
 ### 安装教程
 
@@ -83,4 +83,7 @@
 2. npm install   安装
 3. npm run serve 运行
 4. npm run build 构建
+### 开始
+在views中创建一个组件开始吧，注册好router并访问！
 
+记得配合规范文档食用哦
