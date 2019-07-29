@@ -6,76 +6,76 @@
 ### 架构
 #### yuyanVue
 
-  ├ dist                      构建目录
+&emsp;├ dist                      构建目录
   
-  ├ public                    外部构建目录
+&emsp;├ public                    外部构建目录
   
-  ├ src                       资源目录
+&emsp;├ src                       资源目录
   
-  │ ├ assets                  静态资源目录
+&emsp;│ ├ assets                  静态资源目录
   
-  │ │ ├ imgs                  本地图片资源
+&emsp;│ │ ├ imgs                  本地图片资源
   
-  │ │ └ style                 样式目录
+&emsp;│ │ └ style                 样式目录
   
-  │ ├ components              公共组件目录
+&emsp;│ ├ components              公共组件目录
   
-  │ ├ layout                  布局目录
+&emsp;│ ├ layout                  布局目录
   
-  │ ├ plugins                 插件(js)目录
+&emsp;│ ├ plugins                 插件(js)目录
   
-  │ ├ view                    视图目录
+&emsp;│ ├ view                    视图目录
   
-  │ ├ App.vue                 根组件
+&emsp;│ ├ App.vue                 根组件
   
-  │ ├ element-variables.scss  element变量样式
+&emsp;│ ├ element-variables.scss  element变量样式
   
-  │ ├ main.js                 入口
+&emsp;│ ├ main.js                 入口
   
-  │ ├ router.js               路由
+&emsp;│ ├ router.js               路由
   
-  │ └ store.js                vuex
+&emsp;│ └ store.js                vuex
   
-  ├ babel.config.js           babel配置 
+&emsp;├ babel.config.js           babel配置 
   
-  ├ package.json              包管理json
+&emsp;├ package.json              包管理json
   
-  └ vue.config.js             Vue配置项
+&emsp;└ vue.config.js             Vue配置项
   
 
 
 ### 要点
 本框架主要的技术支撑以及使用的插件：
 
-Vue.js
+&emsp;Vue.js
 
-Vue-Router
+&emsp;Vue-Router
 
-Vuex
+&emsp;Vuex
 
-Vue CLI v3.0+
+&emsp;Vue CLI v3.0+
 
-Webpack
+&emsp;Webpack
 
-Babel ES2015
+&emsp;Babel ES2015
 
-less
+&emsp;less
 
-ElementUI v2.9.0+
+&emsp;ElementUI v2.9.0+
 
-axios
+&emsp;axios
 
-echarts
+&emsp;echarts
 
-md5
+&emsp;md5
 
-wangEditor
+&emsp;wangEditor
 
-qs
+&emsp;qs
 
-font-awesome
+&emsp;font-awesome
 
-需配合规范文档食用
+&emsp;需配合规范文档食用
 
 ### 安装教程
 
