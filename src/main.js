@@ -27,6 +27,10 @@ import qs from 'qs'
 import echarts from 'echarts' 
 Vue.prototype.$echarts = echarts 
 
+// 引入 vue-fragment
+import Fragment from 'vue-fragment'
+Vue.use(Fragment.Plugin)
+
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest';
 Vue.prototype.$axios = axios;
 

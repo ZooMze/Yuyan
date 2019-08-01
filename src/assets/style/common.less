@@ -8,14 +8,17 @@ body {
 /**
  * 修改element的基本样式
  */
-/* 导航组件展开后宽度会出现的问题 */
-#nav.el-menu {
-  border-right-width: 0!important;
-  ul.el-menu.el-menu--inline li{
-    background: #E9EFE8!important;
+
+.el-menu--collapse { /* 为兼容导航折叠后文字依旧存在的问题*/
+  .el-submenu__title {
+    color: #001324!important;
+    overflow-x: hidden; 
   }
 }
-
+.el-table tr th {
+  background: #FAFAFA;
+  color: #333333;
+}
 /* textarea的默认字体样式 */
 textarea.el-textarea__inner {
   font-family: '微软雅黑'
@@ -41,36 +44,77 @@ textarea.el-textarea__inner {
 .el-tree .el-tree-node__content * {
   font-size: 14px;
 }
-// .el-input .el-input__inner {
-//   vertical-align: middle;
-// }
+.el-button {
+  border-radius: 2px;
+}
+.el-button.el-button--primary.gradient {
+  border: none;
+  background: linear-gradient(to right, #0E82EB99, #0E82EBFF);
+  &.is-disabled {
+    background: #a0cfff!important;
+  }
+}
 
 /**
  * nav-layout 的样式
  */
 .main-container {
-  background: #efefef;
-  .header {
-    display: flex;
-    justify-content: flex-start;
+  background: #F5F5F5;
+  .no-fold-img {
     height: 55px;
-    background: linear-gradient(to left, #59B493, #207DBC);
-    h1 {
-      display: inline-block;
-      width: 100vw;
+    padding: 0 10px 0 12px;
+    background: #001324;
+  }
+  .header {
+    height: 55px;
+    overflow-y: hidden;
+    background: #fff;
+    div.logo-header {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 200px;
       margin: 0;
-      padding: 0 20px;
       color: #fff;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: normal;
       line-height: 55px;
+      background: #001324;
+      img {
+        height: 45px;
+        margin: 0 10px 0 20px;
+      }
+      &.has-folded {
+        width: 64px;
+        height: 55px;
+        img {
+          margin: 0 15px 0 15px;
+        }
+      }
+      
+    }
+    .fold-button {
+      position: absolute;
+      right: -30px;
+      font-size: 26px;
+      color: #333333;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .folded-button { /* 展开按钮单独控制样式*/
+      position: absolute;
+      top: 14px;
+      left: 74px;
+      font-size: 26px;
+      color: #333333;
     }
     .user-area {
       display: flex;
       align-items: center;
       width: 180px;
       padding: 20px;
-      color: #fff;
       img {
         height: 35px;
         border: 2px solid #8FC23E;
@@ -87,10 +131,6 @@ textarea.el-textarea__inner {
     display: flex;
     justify-content: space-between;
     height: calc( 100vh - 55px);
-    .left-nav {
-      width: 215px;
-      height: 100%;
-    }
     .router-container {
       display: inline-block;
       margin: 10px;
@@ -105,19 +145,40 @@ textarea.el-textarea__inner {
  */
 .view-container {
   position: relative;
-  width: calc( 100vw - 236px );
-  .el-breadcrumb:first-child {
-    padding: 20px;
-    border-bottom: 1px solid #ececec;
-    font-size: 16px;
+  width: calc( 100vw - 220px );
+  .el-breadcrumb {
+    padding-top: 5px!important;
+    padding-bottom: 15px!important;
+    background: #F5F5F5;
   }
-  .el-breadcrumb:first-child + .right-button {
-    position: absolute;
-    right: 10px;
-    top: 12px;
-    padding: 9px 5px;
-    i.fa{
-      margin-right: 5px;
+  // .el-breadcrumb:first-child {
+  //   padding: 20px;
+  //   background: #F5F5F5;
+  //   font-size: 16px;
+  // }
+  // .el-breadcrumb:first-child + .right-button {
+  //   position: absolute;
+  //   right: 10px;
+  //   top: 12px;
+  //   padding: 9px 5px;
+  //   i.fa{
+  //     margin-right: 5px;
+  //   }
+  // }
+  /* 面包屑强行变为标题, 便于以后拓展面包屑 */
+  span.el-breadcrumb__inner {
+    font-size: 18px;
+    font-weight: bold!important;
+    color: #333333!important;
+  }
+  .view-header {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    background: #F5F5F5;
+    padding-bottom: 15px;
+    .search-area {
+
     }
   }
   .view-body {
@@ -126,7 +187,7 @@ textarea.el-textarea__inner {
     overflow-y: auto;
   }
   &.has-foot .view-body {
-    height: calc( 100vh - 198px);
+    height: calc( 100vh - 240px);
   }
   .view-footer {
     .el-pagination {

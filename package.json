@@ -18,6 +18,7 @@
     "qs": "^6.5.2",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
+    "vue-fragment": "^1.5.1",
     "vue-router": "^3.0.1",
     "vue-socket.io": "^2.1.1-b",
     "vuex": "^3.0.1",

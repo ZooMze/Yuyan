@@ -8,5 +8,7 @@ For example, to overwrite the theme color:
 // $--font-size-base: 12px !important;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
-// $--color-primary: #62a303;
+$--color-primary: #0E82EB;
+$--color-warning: #FF9302;
+$--color-danger: #FF6565;
 @import "~element-ui/packages/theme-chalk/src/index";

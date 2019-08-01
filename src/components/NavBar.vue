@@ -3,6 +3,9 @@
     class="navigation-bar"
     :default-active="activeNav"
     @select="navSelected"
+    background-color="#001324"
+    text-color="#FFFFFF"
+    :collapse="folded"
     mode="vertical">
     <!-- 仅渲染含children && showNavLayout 的节点 -->
     <nav-bar-item v-for="menu in navArray" :key="menu.path" :item="menu"/>
@@ -25,6 +28,10 @@
       activeIndex: {
         type: Number,
         require: true
+      },
+      folded: {
+        type: Boolean,
+        require: true
       }
     },
     watch: {
@@ -35,6 +42,11 @@
       //   },
       //   deep: true
       // },
+      folded: {
+        handler (newV, oldV) {
+        },
+        deep: true
+      },
       "$route": { //监听router变化
         handler (to, from) {
         },
@@ -72,7 +84,11 @@
 
 <style lang="less" scoped>
   .navigation-bar {
-    width: 215px;
+    width: 200px;
     height: 100%;
+    &.el-menu--collapse {
+      width: 64px;
+    }
   }
+
 </style>

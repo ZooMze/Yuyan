@@ -1,5 +1,5 @@
 <template>
-  <div v-if="item.children">
+  <fragment v-if="item.children">
     <!-- 单独节点 -->
     <template v-if="item.children.length == 0">
       <el-menu-item v-if="!item.meta.hidden" :index="item.path">
@@ -30,7 +30,7 @@
         </template>
       </template>
     </el-submenu>
-  </div>
+  </fragment>
 </template>
 
 <script>
