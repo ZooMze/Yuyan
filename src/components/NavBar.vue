@@ -8,6 +8,10 @@
     :collapse="folded"
     mode="vertical">
     <!-- 仅渲染含children && showNavLayout 的节点 -->
+    <div index="logo" class="logo">
+      <img src="../assets/imgs/logo_mini_white_height.png" class="no-fold-img"></img>
+      <span v-if="!folded">与燕公寓</span>
+    </div>
     <nav-bar-item v-for="menu in navArray" :key="menu.path" :item="menu"/>
   </el-menu>
 </template>
@@ -76,7 +80,9 @@
        * @return {[type]}           [description]
        */
       navSelected(path, pathArray) {
-        this.$router.push({name: path})
+        if(path != 'logo') {
+          this.$router.push({name: path})
+        }
       }
     }
   }

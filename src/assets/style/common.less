@@ -5,14 +5,41 @@ body {
   padding: 0;
 }
 
+@keyframes fold
+{
+from { width: calc( 100vw - 74px ) };
+to { width: calc( 100vw - 210px ) };
+}
+@keyframes unfold
+{
+from { width: calc( 100vw - 210px ) };
+to { width: calc( 100vw - 74px ) };
+}
 /**
  * 修改element的基本样式
  */
-
 .el-menu--collapse { /* 为兼容导航折叠后文字依旧存在的问题*/
   .el-submenu__title {
     color: #001324!important;
     overflow-x: hidden; 
+  }
+}
+.left-nav .logo{
+
+  display: flex;
+  overflow: hidden; 
+  align-items: center;
+  padding: 0!important;
+  color: #fff;
+  &:hover {
+    cursor: default;
+  }
+  span {
+    display: inline-block;
+
+    min-width: 100%;
+    overflow: hidden; 
+    color: #fff;
   }
 }
 .el-table tr th {
@@ -62,59 +89,30 @@ textarea.el-textarea__inner {
   background: #F5F5F5;
   .no-fold-img {
     height: 55px;
+    width: 42px;
     padding: 0 10px 0 12px;
     background: #001324;
   }
-  .header {
+  .body-top {
     height: 55px;
     overflow-y: hidden;
     background: #fff;
-    div.logo-header {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 200px;
-      margin: 0;
-      color: #fff;
-      font-size: 20px;
-      font-weight: normal;
-      line-height: 55px;
-      background: #001324;
-      img {
-        height: 45px;
-        margin: 0 10px 0 20px;
-      }
-      &.has-folded {
-        width: 64px;
-        height: 55px;
-        img {
-          margin: 0 15px 0 15px;
-        }
-      }
-      
-    }
     .fold-button {
-      position: absolute;
-      right: -30px;
+      margin: 15px 10px;
       font-size: 26px;
       color: #333333;
       &:hover {
         cursor: pointer;
       }
     }
-    .folded-button { /* 展开按钮单独控制样式*/
-      position: absolute;
-      top: 14px;
-      left: 74px;
-      font-size: 26px;
-      color: #333333;
-    }
     .user-area {
+      position: absolute;
+      right: 0;
+      top: 0;
       display: flex;
       align-items: center;
-      width: 180px;
-      padding: 20px;
+      width: 150px;
+      padding: 20px 10px;
       img {
         height: 35px;
         border: 2px solid #8FC23E;
@@ -130,13 +128,21 @@ textarea.el-textarea__inner {
   .body {
     display: flex;
     justify-content: space-between;
-    height: calc( 100vh - 55px);
+    height: calc( 100vh );
+    .right-area {
+      width: 100%;
+    }
     .router-container {
       display: inline-block;
       margin: 10px;
-      width: 100%;
+      width: calc( 100vw - 210px );
+      animation: fold .3s ease-in-out;
       box-sizing: border-box;
       background: #fff;
+      &.has-folded {
+        animation: unfold .3s ease-in-out;
+        width: calc( 100vw - 74px );
+      }
     }
   }
 }
@@ -145,7 +151,6 @@ textarea.el-textarea__inner {
  */
 .view-container {
   position: relative;
-  width: calc( 100vw - 220px );
   .el-breadcrumb {
     padding-top: 5px!important;
     padding-bottom: 15px!important;

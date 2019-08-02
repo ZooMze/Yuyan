@@ -1,30 +1,24 @@
 <template>
   <div class="main-container">
-    <div class="header">
-      <img v-if="folded" src="../assets/imgs/logo_mini_white_height.png" class="no-fold-img"></img>
-      <transition name="slide">
-        <div v-if="!folded" class="logo-header" :class="{'has-folded': folded}">
-          <img src="../assets/imgs/logo_mini_white_height.png"></img>
-          <span>与燕公寓</span>
-          <i v-if="!folded" class="el-icon-s-fold fold-button" @click="foldMenu(false)"></i>
-        </div>
-      </transition>
-      <i v-if="folded" class="el-icon-s-unfold folded-button" @click="foldMenu(true)"></i>
-      <!-- 用户区域 -->
-      <!-- <div class="user-area">
-        <span>{{ $store.state.userData.user_name || "未登录"}}</span>
-        <i class="fa fa-sign-out" @click="$router.push({name: 'login'})"></i>
-      </div> -->
-    </div>
+    
     <div class="body">
       <div class="left-nav">
         <nav-bar :activeIndex="activeIndex" :folded="folded"></nav-bar>
       </div>
-      <transition name="el-fade-in">
-        <div class="router-container">
+      <div class="right-area">
+        <div class="body-top">
+          <i v-if="!folded" class="el-icon-s-fold fold-button" @click="foldMenu(false)"></i>
+          <i v-if="folded" class="el-icon-s-unfold fold-button" @click="foldMenu(true)"></i>
+          <!-- 用户区域 -->
+          <div class="user-area">
+            <span>{{ $store.state.userData.user_name || "未登录"}}</span>
+            <i class="fa fa-sign-out" @click="$router.push({name: 'login'})"></i>
+          </div>
+        </div>
+        <div class="router-container" :class="{'has-folded': folded}">
           <router-view></router-view>
         </div>
-      </transition>
+      </div>
     </div>
   </div>
 </template>
