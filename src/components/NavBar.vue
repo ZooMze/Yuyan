@@ -10,7 +10,9 @@
     <!-- 仅渲染含children && showNavLayout 的节点 -->
     <div index="logo" class="logo">
       <img src="../assets/imgs/logo_mini_white_height.png" class="no-fold-img"></img>
-      <span v-if="!folded">与燕公寓</span>
+      <transition name="el-zoom-in-center">
+        <span v-if="!folded">与燕公寓</span>
+      </transition>
     </div>
     <nav-bar-item v-for="menu in navArray" :key="menu.path" :item="menu"/>
   </el-menu>
@@ -87,14 +89,3 @@
     }
   }
 </script>
-
-<style lang="less" scoped>
-  .navigation-bar {
-    width: 200px;
-    height: 100%;
-    &.el-menu--collapse {
-      width: 64px;
-    }
-  }
-
-</style>

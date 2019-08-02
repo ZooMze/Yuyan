@@ -7,25 +7,53 @@ body {
 
 @keyframes fold
 {
-from { width: calc( 100vw - 74px ) };
-to { width: calc( 100vw - 210px ) };
+from { width: calc( 100vw - 84px ) };
+to { width: calc( 100vw - 220px ) };
 }
 @keyframes unfold
 {
-from { width: calc( 100vw - 210px ) };
-to { width: calc( 100vw - 74px ) };
+from { width: calc( 100vw - 220px ) };
+to { width: calc( 100vw - 84px ) };
 }
 /**
  * 修改element的基本样式
  */
-.el-menu--collapse { /* 为兼容导航折叠后文字依旧存在的问题*/
+.navigation-bar.el-menu--collapse { /* 为兼容导航折叠后文字依旧存在的问题*/
   .el-submenu__title {
     color: #001324!important;
     overflow-x: hidden; 
+    i {
+      color: #909399!important;
+    }
+  }
+  .el-submenu.is-active .el-submenu__title{
+    background: #0E82EB!important;
+    color: #0E82EB!important;
+    i {
+      color: #fff!important;
+    }
   }
 }
-.left-nav .logo{
+.navigation-bar>.el-submenu.is-active.is-opened > .el-submenu__title:first-child {
+  background: #0E82EB!important;
+  i {
+    color: #fff!important;
+  }
+}
+.navigation-bar {
+  width: 200px;
+  height: 100%;
+  &.el-menu--collapse {
+    width: 64px;
 
+  }
+  .el-submenu__title, .el-menu-item-group__title{
+    overflow: hidden;
+    min-width: 100%;
+  }
+}
+
+.left-nav .logo{
   display: flex;
   overflow: hidden; 
   align-items: center;
@@ -90,7 +118,7 @@ textarea.el-textarea__inner {
   .no-fold-img {
     height: 55px;
     width: 42px;
-    padding: 0 10px 0 12px;
+    padding: 0 11px 0 11px;
     background: #001324;
   }
   .body-top {
@@ -135,13 +163,13 @@ textarea.el-textarea__inner {
     .router-container {
       display: inline-block;
       margin: 10px;
-      width: calc( 100vw - 210px );
+      width: calc( 100vw - 220px );
       animation: fold .3s ease-in-out;
       box-sizing: border-box;
       background: #fff;
       &.has-folded {
         animation: unfold .3s ease-in-out;
-        width: calc( 100vw - 74px );
+        width: calc( 100vw - 84px );
       }
     }
   }
@@ -191,8 +219,11 @@ textarea.el-textarea__inner {
     padding: 10px;
     overflow-y: auto;
   }
+  &.has-header .view-body {
+    height: calc( 100vh - 180px);
+  }
   &.has-foot .view-body {
-    height: calc( 100vh - 240px);
+    height: calc( 100vh - 180px);
   }
   .view-footer {
     .el-pagination {

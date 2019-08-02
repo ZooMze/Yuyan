@@ -3,7 +3,6 @@
     <el-breadcrumb>
       <el-breadcrumb-item>组织管理</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-button class="right-button" type="text" @click="showNodeDialog('new')"><i class="el-icon-plus"></i>添加顶级组织</el-button>
     <div class="view-body">
       <el-tree
         v-if="orgTreeData.length > 0"

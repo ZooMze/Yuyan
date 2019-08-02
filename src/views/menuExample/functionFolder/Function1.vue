@@ -4,8 +4,6 @@
       <el-breadcrumb-item :to="{name: 'function2'}">功能标题</el-breadcrumb-item>
       <el-breadcrumb-item>详情页</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-button class="right-button" type="text" size="middle">右侧按钮<i class="el-icon-plus"></i></el-button>
-
     <div class="view-body">
       <p>页面刷新 导航也不会丢失</p>
       <p>详情页不在导航中显示</p>

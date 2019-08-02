@@ -3,8 +3,6 @@
     <el-breadcrumb>
       <el-breadcrumb-item>功能标题</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-button class="right-button" type="text" size="middle">右侧按钮<i class="el-icon-plus"></i></el-button>
-
     <div class="view-body">
       <p>页面主体内容...</p>
       <el-button type="primary" @click="$router.push({name: 'function1'})">进入详情页</el-button>
