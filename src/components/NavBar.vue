@@ -3,15 +3,17 @@
     class="navigation-bar"
     :default-active="activeNav"
     @select="navSelected"
+    :unique-opened="true"
     background-color="#001324"
     text-color="#FFFFFF"
     :collapse="folded"
     mode="vertical">
     <!-- 仅渲染含children && showNavLayout 的节点 -->
+    <!-- logo为特殊节点 属于导航内 但不是router的节点 -->
     <div index="logo" class="logo">
       <img src="../assets/imgs/logo_mini_white_height.png" class="no-fold-img"></img>
       <transition name="el-zoom-in-center">
-        <span v-if="!folded">与燕公寓</span>
+        <span v-if="!folded">与燕科技</span>
       </transition>
     </div>
     <nav-bar-item v-for="menu in navArray" :key="menu.path" :item="menu"/>
@@ -55,12 +57,17 @@
       },
       "$route": { //监听router变化
         handler (to, from) {
+          if(this.$route.matched[this.$route.matched.length - 1].meta.hidden) {
+            this.activeNav = this.$route.matched[this.$route.matched.length - 1].meta.redirectName
+          } else {
+            this.activeNav = this.$route.matched[this.$route.matched.length - 1].name
+          }
         },
         deep: true
       }
     },
     created () {
-      // 当前页并非导航节点（即详情页）
+      // 当前页并非导航节点（即详情页)
       if(this.$route.matched[this.$route.matched.length - 1].meta.hidden) {
         this.activeNav = this.$route.matched[this.$route.matched.length - 1].meta.redirectName
       } else {

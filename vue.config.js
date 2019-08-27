@@ -6,7 +6,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/apis': {
-        target: 'http://adminaichengdu.yuyankeji.cn/icd/public/index.php',
+        target: 'http://adminwisdom.yuyankeji.cn/',
         changeOrigin: true,  //是否跨域
         pathRewrite: {'^/apis' : ''}, //重定向
         secure: false
