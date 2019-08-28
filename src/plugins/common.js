@@ -5,8 +5,8 @@ import qs from "qs"
 const Vue = new vue({router, store}); //注册router, 实例中调用
 
 export default {
-  basePath:      `${window.location.origin}/apis`,
-  // basePath:      'http://adminaichengdu.yuyankeji.cn/icd/public/index.php',
+  // basePath:      `${window.location.origin}/apis`,
+  basePath:      'http://adminaichengdu.yuyankeji.cn/icd/public/index.php',
   uploadPath:    `${window.location.origin}/apis/admin/activity/wangEditorImg`,
   filePath:      `http://192.168.1.118/icd`,
   emailReg:      /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/,

@@ -1,5 +1,6 @@
 <template>
   <el-menu
+    id="nav"
     class="navigation-bar"
     :default-active="activeNav"
     @select="navSelected"

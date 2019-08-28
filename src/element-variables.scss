@@ -8,6 +8,11 @@ For example, to overwrite the theme color:
 $--font-size-base: 14px !important;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
+// 文字颜色
+$--color-text-primary: #333333;
+$--color-text-regular: #666666;
+$--color-text-secondary: #999999;
+$--color-text-placeholder: #cbcbcb;
 // $--color-primary: #0E82EB;
 // $--color-warning: #FF9302;
 // $--color-danger:  #FF6565;
@@ -31,4 +36,14 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 }
 .bg-info {
   background-color: $--color-info;
+}
+/* 全局文字颜色控制 */
+h1, h2, h3, h4, h5 {
+  color: $--color-text-primary;
+}
+p {
+  color: $--color-text-regular;
+}
+small {
+  color: $--color-text-secondary;
 }
