@@ -9,10 +9,10 @@ $--font-size-base: 14px !important;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 // 文字颜色
-$--color-text-primary: #333333;
-$--color-text-regular: #666666;
-$--color-text-secondary: #999999;
-$--color-text-placeholder: #cbcbcb;
+$--color-text-primary: #333333; // 标题
+$--color-text-regular: #666666; // 正文
+$--color-text-secondary: #999999; // 辅助
+$--color-text-placeholder: #cbcbcb; // 占位
 // $--color-primary: #0E82EB;
 // $--color-warning: #FF9302;
 // $--color-danger:  #FF6565;
@@ -41,9 +41,42 @@ $--color-text-placeholder: #cbcbcb;
 h1, h2, h3, h4, h5 {
   color: $--color-text-primary;
 }
-p {
+p, li {
   color: $--color-text-regular;
+  & span {
+    color: inherit;
+  }
 }
 small {
   color: $--color-text-secondary;
+}
+.text-white, .text-white:hover {
+  color: #ffffff;
+}
+.text-info, .text-info:hover {
+  color: $--color-text-secondary;
+}
+.text-primary, .text-primary:hover {
+  color: $--color-primary;
+}
+.text-success, .text-success:hover {
+  color: $--color-success;
+}
+.text-warning, .text-warning:hover {
+  color: $--color-warning;
+}
+.text-danger, .text-danger:hover{
+  color: $--color-danger;
+}
+.text-1 {
+  color: $--color-text-primary;
+}
+.text-2 {
+  color: $--color-text-regular;
+}
+.text-3 {
+  color: $--color-text-secondary;
+}
+.text-4 {
+  color: $--color-text-placeholder;
 }

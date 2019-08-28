@@ -1,5 +1,19 @@
 @--color-primary:       #62a303;
 @--color-primary-plain: #eff6e6;
+
+.margin-top(@t: auto) {
+  margin-top: @t;
+}
+.margin-right(@r: auto) {
+  margin-right: @r;
+}
+.margin-bottom(@b: auto) {
+  margin-bottom: @b;
+}
+.margin-left(@l: auto) {
+  margin-left: @l;
+}
+
 body {
   margin:0;
   padding: 0;
@@ -7,16 +21,20 @@ body {
 * {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;  
 }
+h1, h2, h3, h4 {
+  .margin-top(@t: 15px);
+  .margin-bottom(@b: 15px);
+}
 h1, h2, h3, h4, p, span, div, template, block {
   span {
     font-size: inherit; /* 避免嵌入导致样式失效*/
   }
 }
 h3 {
-  font: 18px;
+  font-size: 18px;
 }
 p, span, div, template, block {
-  font-size: 14px;
+  font-size: 15px;
 }
 @keyframes fold
 {
@@ -28,6 +46,25 @@ to { width: calc( 100vw - 200px ) };
 from { width: calc( 100vw - 200px ) };
 to { width: calc( 100vw - 64px ) };
 }
+
+/* 设置滚动条的样式 */
+/*滚动条整体部分,必须要设置*/
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+}
+/*滚动条的轨道*/
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 4px rgba(0,0,0,.1);
+    background-color: #fff;
+}
+/*滚动条的滑块按钮*/
+::-webkit-scrollbar-thumb{
+    border-radius: 8px;
+    background-color: #9c9c9c;
+}
+
 /**
  * 修改element的基本样式
  */
@@ -54,7 +91,7 @@ to { width: calc( 100vw - 64px ) };
   }
 }
 .navigation-bar {
-  
+
   width: 200px;
   height: 100%;
   &.el-menu--collapse {
@@ -65,7 +102,7 @@ to { width: calc( 100vw - 64px ) };
     color: #fff;
   }
   .el-submenu .el-menu .el-menu-item {
-    padding-left: 49px!important;
+    padding-left: 48px!important;
   }
 }
 .el-select-dropdown__wrap.el-scrollbar__wrap {
@@ -144,6 +181,7 @@ textarea.el-textarea__inner {
     height: 55px;
     overflow-y: hidden;
     background: #fff;
+    border-bottom: 1px solid #f5f5f5;
     .fold-button {
       margin: 15px 10px;
       font-size: 26px;
@@ -189,7 +227,7 @@ textarea.el-textarea__inner {
       
       &.has-folded {
         animation: unfold .3s ease-in-out;
-        width: calc( 100vw - 94px );
+        width: calc( 100vw - 64px );
       }
     }
   }
@@ -305,24 +343,7 @@ textarea.el-textarea__inner {
   color: #909399;
   text-align: center;
 }
-.text-default, .text-default:hover {
-  color: #ffffff;
-}
-.text-info, .text-info:hover {
-  color: #909399;
-}
-.text-primary, .text-primary:hover {
-  color: #409EFF;
-}
-.text-success, .text-success:hover {
-  color: #67C23A;
-}
-.text-warning, .text-warning:hover {
-  color: #E6A23C;
-}
-.text-danger, .text-danger:hover{
-  color: #F56C6C;
-}
+
 .align-left-through *{ //穿透
   text-align: left!important;
 }
@@ -332,21 +353,57 @@ textarea.el-textarea__inner {
 .align-right {
   text-align: right;
 }
-.margin-t-0 {
-  margin-top: 0px; 
+.text-underline {
+  text-decoration: underline;
 }
+
+.margin-t-0 {
+  .margin-top(@t: 0);
+}
+.margin-r-0 {
+  .margin-right(@r: 0);
+}
+.margin-b-0 {
+  .margin-bottom(@b: 0);
+}
+.margin-l-0 {
+  .margin-left(@l: 0);
+}
+
 .margin-t-15 {
-  margin-top: 15px; 
+  .margin-top(@t: 15px);
 }
 .margin-r-15 {
-  margin-right: 15px; 
+  .margin-right(@r: 15px);
 }
 .margin-b-15 {
-  margin-bottom: 15px; 
+  .margin-bottom(@b: 15px);
 }
 .margin-l-15 {
-  margin-left: 15px; 
+  .margin-left(@l: 15px);
 }
+
+.margin-tb-15 {
+  .margin-top(@t: 15px);
+  .margin-bottom(@b: 15px);
+}
+.margin-lr-15 {
+  .margin-left(@l: 15px);
+  .margin-right(@r: 15px);
+}
+.margin-15 {
+  .margin-top(@t: 15px);
+  .margin-right(@r: 15px);
+  .margin-bottom(@b: 15px);
+  .margin-left(@l: 15px);
+}
+.margin-0 {
+  .margin-top(@t: 0);
+  .margin-right(@r: 0);
+  .margin-bottom(@b: 0);
+  .margin-left(@l: 0);
+}
+
 .el-tree .text-button-wrap {
   width: 100%!important;
   height: 26px;
@@ -355,6 +412,7 @@ textarea.el-textarea__inner {
     padding: 0;
   }
 }
+
 /* 文档美化样式 */
 code { // 单行内代码
   display: inline-block;
@@ -367,6 +425,7 @@ code { // 单行内代码
 }
 pre { // 块级代码
   display: block;
+  overflow-x: hidden;
   line-height: 1.8;
   font-family: Menlo,Monaco,Consolas,Courier,monospace;
   font-size: 12px;
@@ -376,6 +435,13 @@ pre { // 块级代码
   margin-bottom: 25px;
   border-radius: 4px;
   -webkit-font-smoothing: auto;
+}
+.tip-area {
+  padding: 8px 16px;
+  background-color: #ecf8ff;
+  border-radius: 4px;
+  border-left: 5px solid #50bfff;
+  margin: 20px 0;
 }
 .h1 {
   font: 32px bold;
@@ -394,4 +460,5 @@ pre { // 块级代码
 }
 .small {
   font: 12px normal;
+  color: #999999;
 }

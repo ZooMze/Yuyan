@@ -1,9 +1,10 @@
 <template>
   <div class="default-container">
     <h2 class="margin-t-0">按钮 Button</h2>
-
-    <h3>基本</h3>
     <p>结合 <el-button type="text" size="mini" @click="$router.push({name: 'color'})"> 色彩 Color</el-button> 的颜色 定义了一套按钮 统一使用 <code>size="small"</code></p>
+    
+    <h3>基本</h3>
+    <p>按钮为带圆角的按钮 , 特殊情况下使用圆形按钮 <code>circle</code></p>
     <div>
       <el-button type="default" size="small">默认按钮</el-button>
       <el-button type="primary" size="small">主要按钮</el-button>

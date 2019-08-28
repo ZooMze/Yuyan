@@ -13,6 +13,9 @@ const typography = () => import('./views/basic/Typography.vue')
 const color      = () => import('./views/basic/Color.vue')
 const button     = () => import('./views/basic/Button.vue')
 const layout     = () => import('./views/basic/Layout.vue')
+const classes     = () => import('./views/basic/Classes.vue')
+// Table
+const table = () => import('./views/table/Index.vue')
 // Form
 const form = () => import('./views/form/Index.vue')
 
@@ -100,7 +103,27 @@ export default new Router({
             showNavLayout: true,
           }
         },
+        {
+          path: 'classes',
+          name: 'classes',
+          routerName: '预制类 Classes',
+          component: classes,
+          meta: {
+            showNavLayout: true,
+          }
+        },
       ]
+    },
+    {
+      path: '/table',
+      name: 'table',
+      routerName: '表格 Table',
+      component: table,
+      meta: {
+        icon: 'el-icon-notebook-2',
+        showNavLayout: true
+      },
+      children: []
     },
     {
       path: '/form',
@@ -108,7 +131,7 @@ export default new Router({
       routerName: '表单 Form',
       component: form,
       meta: {
-        icon: 'el-icon-tickets',
+        icon: 'el-icon-document-copy',
         showNavLayout: true
       },
       children: []
