@@ -43,6 +43,15 @@ export default new Vuex.Store({
     updateUserData(state, data) {
       state.userData[data.key] = data.value
     },
+    /**
+     * 改变分页数据
+     * @param  {[type]} state [description]
+     * @param  {[type]} data  [description]
+     * @return {[type]}       [description]
+     */
+    changePage(state, data) {
+      state.pagination.pageNum = data
+    },
   },
   actions: {
 

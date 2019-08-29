@@ -2,9 +2,10 @@
   <div class="default-container">
     <h2 class="margin-t-0">预制类 Classes</h2>
     <p>为了遵循在HTML代码中不出现style的约定 , 本框架提供了快捷样式类 , 在标签中直接添加即可快速添加一些基本样式</code></p>
-    
-    <h3>基本</h3>
     <p>在开发过程中 , 经常因为需要一个很小的样式就要新创建一个class来书写样式 , 因此预制了一些快速的class , 来解决这个繁琐的问题</p>
+
+    <h3>基本</h3>
+    <p>提供最基本的样式</p>
     <div>
       <el-row :gutter="15">
         <el-col :span="12">
@@ -45,7 +46,7 @@
       // 用法
       class="margin *-direction* *-length*" // 快速添加外边距
       // 示例
-      class="margin-t-15" // 快速设置左外边距 = 15px
+      class="margin-t-15" // 快速设置上外边距 = 15px
       class="margin-0" // 快速设置四向外边距 = 0</pre>
     <div>
       <el-row :gutter="15">
@@ -152,7 +153,7 @@
           },
           {
             value: '-l',
-            info: 'left 左边距'
+            info: 'left 左外边距'
           },
           {
             value: '-lr',

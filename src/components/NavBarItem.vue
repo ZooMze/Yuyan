@@ -4,7 +4,7 @@
     <template v-if="item.children.length == 0">
       <el-menu-item class="single" v-if="!item.meta.hidden" :index="item.name">
         <i :class="item.meta.icon"></i>
-        <span slot="title">{{ item.routerName }}</span>
+        <span slot="title">{{ item.meta.routerName }}</span>
       </el-menu-item>
     </template>
     <!-- 包含子节点 -->
@@ -13,7 +13,7 @@
       <template v-if="!item.meta.hidden">
         <template slot="title" >
           <i :class="item.meta.icon"></i>
-          <span slot="title">{{ item.routerName }}</span>
+          <span slot="title">{{ item.meta.routerName }}</span>
         </template>
         <!-- 子分类 - 子节点 -->
         <template v-for="child in item.children">
@@ -24,7 +24,7 @@
             :key="child.path"/>
             <!-- 渲染子节点 -->
           <el-menu-item v-else-if="!child.meta.hidden" :key="child.path" :index="child.name">
-            <span slot="title">{{ child.routerName }}</span>
+            <span slot="title">{{ child.meta.routerName }}</span>
           </el-menu-item>
         </template>
       </template>

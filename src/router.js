@@ -13,11 +13,18 @@ const typography = () => import('./views/basic/Typography.vue')
 const color      = () => import('./views/basic/Color.vue')
 const button     = () => import('./views/basic/Button.vue')
 const layout     = () => import('./views/basic/Layout.vue')
-const classes     = () => import('./views/basic/Classes.vue')
+const classes    = () => import('./views/basic/Classes.vue')
+
 // Table
 const table = () => import('./views/table/Index.vue')
+
 // Form
 const form = () => import('./views/form/Index.vue')
+
+// Ability
+const abilityIndex   = () => import('./views/ability/Index.vue')
+const keepAlive      = () => import('./views/ability/KeepAlive.vue')
+const keepAliveInner = () => import('./views/ability/KeepAliveInner.vue')
 
 
 // 商城
@@ -37,8 +44,8 @@ Vue.use(Router)
 // router配置说明
 // 含有children的路由 需要配置一个Index.vue 用于加载子页面
 // name               路由元名
-// routerName         路由显示的名称
 // meta               附带属性
+// meta.routerName    路由显示的名称
 // meta.showNavLayout 当前页是否需要渲染导航
 // meta.hidden        当前页是否要在导航中隐藏(详情页需要隐藏)
 // meta.redirectName  在导航中隐藏的页面重新定位导航的名称(详情页需要配置此参数, 否则导航不会重新定位)
@@ -49,9 +56,9 @@ export default new Router({
     {
       path: '/intro',
       name: 'intro',
-      routerName: '引言 Intro',
       component: intro,
       meta: {
+        routerName: '引言 Intro',
         icon: 'el-icon-guide',
         showNavLayout: true
       },
@@ -60,9 +67,9 @@ export default new Router({
     {
       path: '/basic',
       name: 'basic',
-      routerName: '基本 Basic',
       component: basicIndex,
       meta: {
+        routerName: '基本 Basic',
         icon: 'el-icon-view',
         showNavLayout: true
       },
@@ -70,45 +77,45 @@ export default new Router({
         {
           path: 'layout',
           name: 'layout',
-          routerName: '布局 Layout',
           component: layout,
           meta: {
+            routerName: '布局 Layout',
             showNavLayout: true,
           }
         },
         {
           path: 'typography',
           name: 'typography',
-          routerName: '字体 Typography',
           component: typography,
           meta: {
+            routerName: '字体 Typography',
             showNavLayout: true,
           }
         },
         {
           path: 'color',
           name: 'color',
-          routerName: '色彩 Color',
           component: color,
           meta: {
+            routerName: '色彩 Color',
             showNavLayout: true,
           }
         },
         {
           path: 'button',
           name: 'button',
-          routerName: '按钮 Button',
           component: button,
           meta: {
+            routerName: '按钮 Button',
             showNavLayout: true,
           }
         },
         {
           path: 'classes',
           name: 'classes',
-          routerName: '预制类 Classes',
           component: classes,
           meta: {
+            routerName: '预制类 Classes',
             showNavLayout: true,
           }
         },
@@ -117,9 +124,9 @@ export default new Router({
     {
       path: '/table',
       name: 'table',
-      routerName: '表格 Table',
       component: table,
       meta: {
+        routerName: '表格 Table',
         icon: 'el-icon-notebook-2',
         showNavLayout: true
       },
@@ -128,14 +135,47 @@ export default new Router({
     {
       path: '/form',
       name: 'form',
-      routerName: '表单 Form',
       component: form,
       meta: {
+        routerName: '表单 Form',
         icon: 'el-icon-document-copy',
         showNavLayout: true
       },
       children: []
     },
+    {
+      path: '/ability',
+      name: 'ability',
+      component: abilityIndex,
+      meta: {
+        routerName: '功能 Ability',
+        icon: 'el-icon-files',
+        showNavLayout: true
+      },
+      children: [
+        {
+          path: '/keepAlive',
+          name: 'keepAlive',
+          component: keepAlive,
+          meta: {
+            routerName: '保持 keepAlive',
+            keepAlive: true,
+            showNavLayout: true
+          },
+        },
+        {
+          path: 'keepAliveInner',
+          name: 'keepAliveInner',
+          component: keepAliveInner,
+          meta: {
+            hidden: true,
+            showNavLayout: true,
+            redirectName:  'keepAlive'
+          },
+        }
+      ]
+    },
+
     // {
     //   path: '/menuExapmle',
     //   name: 'meunExample',

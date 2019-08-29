@@ -33,6 +33,17 @@
           //   this.alert
           // }
           
+          // 导航级跳转
+          if(to.meta.routerName && from.meta.routerName) {
+            // 还原分页
+            this.$store.commit('changePage', 1)
+            // 控制回滚
+            if(document.getElementsByClassName('router-container')[0]) {
+              let scrollItem = document.getElementsByClassName('router-container')[0]
+              scrollItem.scrollTop = 0
+            }
+          }
+          
         },
         deep: true
       }
