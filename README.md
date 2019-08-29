@@ -3,6 +3,9 @@
 ### 介绍
 一套与燕科技专属的vue平台仓库， 主要基于Vue.js 与 ElementUI进行构建
 
+### 演示地址
+http://vue.yuyankeji.cn
+
 ### 架构
 #### yuyanVue
 
