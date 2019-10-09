@@ -69,7 +69,7 @@
           // sessionStorage.setItem("userId", response.data.user_id)
           // sessionStorage.setItem("token", response.data.token)
           // self.$axios.defaults.headers.common['token'] = response.data.token;
-          self.$router.push({name: "function2"})
+          self.$router.push({name: "intro"})
         // }).catch(error => {
         //   self.$message.error(error.msg)
         //   self.loading = false

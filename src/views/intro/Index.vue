@@ -9,6 +9,7 @@
     <ul>
       <li><p>基于 <a href="https://element.eleme.cn/2.11/#/zh-CN" target="_blank">elmentUI</a> 进行搭建, 并对其做出本地化调整</p></li>
       <li><p>本样式框架旨在为开发人员提供更快捷高效的开发体验, 简化以至于省去繁琐的样式修改流程</p></li>
+      <li><p>框架自适应宽度 , 为达到最佳显示效果 , 页面宽度至少大于 <strong>1280px</strong></p></li>
       <li><p>预制了快捷并符合设计规范的样式(class), 开发者无需自己书写基本的样式</p></li>
       <li><p>定制一套完整的多类型规范模板, 复用模板可以直接生成一个完整的模块(block)</p></li>
     </ul>
@@ -31,17 +32,37 @@
   export default {
     data () {
       return {
-        activities: [{
-          content: '添加了 预制类 的说明 , 添加了 表单(部分)',
-          timestamp: '2019-08-28',
-          type: 'primary',
-        }, {
-          content: '添加了基本的内容文档 , 隐藏一些不需要的样式',
-          timestamp: '2019-08-27'
-        }, {
-          content: '初始化',
-          timestamp: '2019-08-26'
-        }]
+        activities: [
+          {
+            content: '修正 细则内容 ,优化等',
+            timestamp: '2019-10-08',
+            type: 'primary',
+          },
+          {
+            content: '更新 表格',
+            timestamp: '2019-09-27',
+          },
+          {
+            content: '更新 表单',
+            timestamp: '2019-09-04',
+          },
+          {
+            content: '添加了 能力-保持',
+            timestamp: '2019-08-31',
+          },
+          {
+            content: '添加了 预制类 的说明 , 添加了 表单(部分)',
+            timestamp: '2019-08-28',
+          },
+          {
+            content: '添加了基本的内容文档 , 隐藏一些不需要的样式',
+            timestamp: '2019-08-27'
+          },
+          {
+            content: '初始化',
+            timestamp: '2019-08-26'
+          }
+        ]
       }
     }
   }

@@ -8,11 +8,9 @@
     <h3>模块化</h3>
     <p>本样式框架采用的是模块化布局模式, 即每个功能是一个单独的区域</p>
     <div class="margin-t-15 demo-block">
-      <el-breadcrumb separator="/" class="margin-b-15">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item >子页面页</el-breadcrumb-item>
-      </el-breadcrumb>
-      <h2 class="margin-t-0">模块标题</h2>
+      <el-page-header title="返回" content="页面标题"></el-page-header>
+      <h2 class="margin-b-0">功能模块1...</h2>
+      <h2 class="margin-b-0">功能模块2... <br> 功能模块2...</h2>
     </div>
     <transition name="el-fade-in-linear">
       <div v-if="visible" class="layout-modal" @click="showLayout">

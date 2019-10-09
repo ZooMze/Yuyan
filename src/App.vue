@@ -21,26 +21,23 @@
     watch: {
       "$route": {
         handler (to, from) {
-          //跳转到新页面时, 清空vuex的权限内容, 重新比对
-          // this.$store.commit("setAuthority", null)
-          // if(from.path) {
-          //   sessionStorage.setItem("historyName", from.name)
-          // }
-          // 
-          // console.log(from)
-          // console.log(to)
-          // if(from.name == 'rollingSetting' && to.name = 'rollingIndex') {
-          //   this.alert
-          // }
-          
           // 导航级跳转
+          // debugger
           if(to.meta.routerName && from.meta.routerName) {
             // 还原分页
             this.$store.commit('changePage', 1)
             // 控制回滚
-            if(document.getElementsByClassName('router-container')[0]) {
-              let scrollItem = document.getElementsByClassName('router-container')[0]
-              scrollItem.scrollTop = 0
+            if(!to.hash) {
+              if(document.getElementsByClassName('router-container')[0]) {
+                let scrollItem = document.getElementsByClassName('router-container')[0]
+                scrollItem.scrollTop = 0
+              }
+            } else {// 有hash时 跳转至对应hash的位置
+              this.$nextTick(_ => {
+                let id = to.hash.substr(1,to.hash.length-1)
+                let scrollItem = document.getElementsByClassName('router-container')[0]
+                scrollItem.scrollTop = document.getElementById(id).offsetTop - 70
+              })
             }
           }
           

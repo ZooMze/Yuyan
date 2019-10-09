@@ -43,7 +43,7 @@
     </el-row>
     <div class="tip-area">
       <p>为避免样式覆盖ElementUI内的样式 , 所以在非 <code>&lt;p&gt;</code> 、 <code>&lt;li&gt;</code> 或 <code>&lt;small&gt;</code> 以外的元素内直接放入文本内容, 将不能应用默认的颜色信息</p>
-      <p>如果有特殊情况需要使用 , 请使用 <el-button type="text" @click="$router.push({name: 'classes'})">预制类 Classes</el-button> 来修正文本的颜色</p>
+      <p>如果有特殊情况需要使用 , 请使用 <el-button type="text" @click="$router.push({path: '/basic/classes#fontcolor'})">预制类 Classes</el-button> 来修正文本的颜色</p>
       <p>错误示范 : <div>这是在div内的文本 #000000</div></p>
     </div>
     <h3>示例</h3>

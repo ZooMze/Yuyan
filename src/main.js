@@ -38,7 +38,6 @@ Vue.prototype.$axios = axios;
 //request 拦截 添加公用url头
 Vue.prototype.$axios.interceptors.request.use(
   config => {
-    debugger
     return config
   }, 
   error => {

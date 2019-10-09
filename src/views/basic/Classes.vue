@@ -21,8 +21,28 @@
         </el-col>
       </el-row>
     </div>
+    <h3 id="fontsizes">文本字号</h3>
+    <p>在非预期的标签中放入文本 , 会出现样式无法覆盖的问题 , 对此预定义了一系列文本大小的预制类</p>
+    <div>
+      <el-row :gutter="15">
+        <el-col :span="12">
+          <el-table :data="fontSizes" stripe>
+            <el-table-column  label="类名">
+              <template slot-scope="scope">
+                <p>{{scope.row.value}}</p>
+              </template>
+            </el-table-column>
+            <el-table-column label="描述">
+              <template slot-scope="scope">
+                <p class="margin-0" :class="scope.row.value">{{scope.row.info}}</p>
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-col>
+      </el-row>
+    </div>
 
-    <h3>文本色彩</h3>
+    <h3 id="fontcolor">文本色彩</h3>
     <p>结合 <el-button type="text" size="mini" @click="$router.push({name: 'color'})"> 色彩 Color</el-button> 的颜色  根据不同的业务情况利用辅助颜色对 <strong>文字</strong> 进行标注和补充等</p>
     <div>
       <el-row :gutter="15">
@@ -102,7 +122,32 @@
             value: 'align-center',
             info: 'text-align: center;'
           }
-          
+        ],
+        fontSizes: [
+          {
+            value: 'text-32',
+            info: 'h1 - 文本'
+          },
+          {
+            value: 'text-24',
+            info: 'h2 - 文本'
+          },
+          {
+            value: 'text-18',
+            info: 'h3 - 文本'
+          },
+          {
+            value: 'text-16',
+            info: 'h4 - 文本'
+          },
+          {
+            value: 'text-14',
+            info: 'p - 文本'
+          },
+          {
+            value: 'text-12',
+            info: 'small - 文本'
+          },
         ],
         classes: [
           {

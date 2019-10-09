@@ -13,12 +13,26 @@
       <el-button type="danger" size="small">危险按钮</el-button>
     </div>
     <div class="margin-t-15">
+      <el-button type="default" size="small" plain>默认按钮</el-button>
+      <el-button type="primary" size="small" plain>主要按钮</el-button>
+      <el-button type="success" size="small" plain>成功按钮</el-button>
+      <el-button type="warning" size="small" plain>警告按钮</el-button>
+      <el-button type="danger" size="small" plain>危险按钮</el-button>
+    </div>
+    <div class="margin-t-15">
       <el-button icon="el-icon-search" size="small" circle></el-button>
       <el-button type="primary" size="small" icon="el-icon-edit" circle></el-button>
       <el-button type="success" size="small" icon="el-icon-check" circle></el-button>
       <el-button type="info" size="small" icon="el-icon-message" circle></el-button>
       <el-button type="warning" size="small" icon="el-icon-star-off" circle></el-button>
       <el-button type="danger" size="small" icon="el-icon-delete" circle></el-button>
+    </div>
+    <div class="tip-area">
+      <p>再没有特殊要求下 , 按钮中的文本仅有两个字时 , 字间请添加一个空格</p>
+    </div>
+    <div class="margin-t-15">
+      <el-button icon="el-icon-search" size="small">搜 索</el-button>
+      <el-button type="primary" size="small" icon="el-icon-edit">编 辑</el-button>
     </div>
   </div>
 </template>

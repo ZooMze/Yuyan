@@ -3,9 +3,6 @@
     <h2>保持 KeepAlive</h2>
     <p>用户在从列表页进入详情页后 , 再返回到列表页 , 期望的是列表页的状态和内容等都完整的保留( keepAlive ) , 本框架也约定了此功能</p>
     <p>实现方式为 <a href="https://router.vuejs.org/zh/api/#router-view">Vue Router</a> 的 <code>Keep-alive</code> , 详情请参考文档</p>
-    <p>
-      <el-button type="primary" size="small" @click="$router.push({name: 'keepAliveInner'})"> 进入子页面 </el-button>
-    </p>
     <h3>内容保留</h3>
     <p>本例展示了 <code>Keep-alive</code> 的使用效果 , 跳转至子级页面 , 以及子级页面的导航重定向</p>
     <pre> {{ keep }} </pre>
@@ -15,6 +12,9 @@
         <el-input v-model="form.input" placeholder="请输入"></el-input>
       </el-form-item>
     </el-form>
+    <p>
+      <el-button type="primary" size="small" @click="$router.push({name: 'keepAliveInner'})"> 进入子页面 </el-button>
+    </p>
 
     <div class="tip-area">
       <p>尽管 <code>keep-alive</code> 可以实现保持的功能 , 但如果用户在子页面强制刷新了整个网页 , 那么 <code>keep-alive</code> 将失效</p>
@@ -34,6 +34,9 @@
         :total="200" background>
       </el-pagination>
     </div>
+    <p>
+      <el-button type="primary" size="small" @click="$router.push({name: 'keepAliveInner'})"> 进入子页面 </el-button>
+    </p>
   </div>
 </template>
 <script>

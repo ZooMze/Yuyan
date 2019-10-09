@@ -26,17 +26,22 @@ const abilityIndex   = () => import('./views/ability/Index.vue')
 const keepAlive      = () => import('./views/ability/KeepAlive.vue')
 const keepAliveInner = () => import('./views/ability/KeepAliveInner.vue')
 
+// Example
+const exampleIndex = () => import('./views/example/Index.vue')
+const list         = () => import('./views/example/List.vue')
+const detail       = () => import('./views/example/Detail.vue')
+
 
 // 商城
 // -- 订单管理
-const menuExampleIndex = () => import('./views/menuExample/Index.vue')
-const functionMain     = () => import('./views/menuExample/FunctionMain.vue')
-const functionFolder   = () => import('./views/menuExample/functionFolder/Index.vue')
-const function1        = () => import('./views/menuExample/functionFolder/Function1.vue')
-const function2        = () => import('./views/menuExample/functionFolder/Function2.vue')
-const functionFolder2  = () => import('./views/menuExample/functionFolder/functionFolder2/Index.vue')
-const function3        = () => import('./views/menuExample/functionFolder/functionFolder2/Function3.vue')
-const function4        = () => import('./views/menuExample/functionFolder/functionFolder2/Function4.vue')
+// const menuExampleIndex = () => import('./views/menuExample/Index.vue')
+// const functionMain     = () => import('./views/menuExample/FunctionMain.vue')
+// const functionFolder   = () => import('./views/menuExample/functionFolder/Index.vue')
+// const function1        = () => import('./views/menuExample/functionFolder/Function1.vue')
+// const function2        = () => import('./views/menuExample/functionFolder/Function2.vue')
+// const functionFolder2  = () => import('./views/menuExample/functionFolder/functionFolder2/Index.vue')
+// const function3        = () => import('./views/menuExample/functionFolder/functionFolder2/Function3.vue')
+// const function4        = () => import('./views/menuExample/functionFolder/functionFolder2/Function4.vue')
 
 
 Vue.use(Router)
@@ -52,6 +57,14 @@ Vue.use(Router)
 
 export default new Router({
   mode: "history",
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        // 通过 to.hash 的值來找到对应的元素
+        selector: to.hash
+      }
+    }
+  },
   routes: [
     {
       path: '/intro',
@@ -169,13 +182,46 @@ export default new Router({
           component: keepAliveInner,
           meta: {
             hidden: true,
+            keepAlive: true,
             showNavLayout: true,
             redirectName:  'keepAlive'
           },
         }
       ]
     },
-
+    // {
+    //   path: '/example',
+    //   name: 'example',
+    //   component: exampleIndex,
+    //   redirect: {name : 'list'},
+    //   meta: {
+    //     routerName: '实例 Example',
+    //     icon: 'el-icon-star-off',
+    //     showNavLayout: true
+    //   },
+    //   children: [
+    //     {
+    //       path: '/list',
+    //       name: 'list',
+    //       component: list,
+    //       meta: {
+    //         routerName: '列表页 list',
+    //         keepAlive: true,
+    //         showNavLayout: true
+    //       },
+    //     },
+    //     {
+    //       path: 'detail',
+    //       name: 'detail',
+    //       component: detail,
+    //       meta: {
+    //         hidden: true,
+    //         showNavLayout: true,
+    //         redirectName:  'list'
+    //       },
+    //     }
+    //   ]
+    // },
     // {
     //   path: '/menuExapmle',
     //   name: 'meunExample',

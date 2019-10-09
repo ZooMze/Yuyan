@@ -38,6 +38,8 @@
         </el-table-column>
       </el-table>
     </div>
+    <h3>标签</h3>
+    <p>所有文本内容都应包含在标签内 , 避免直接在 <code>&lt;div&gt;</code> , <code>&lt;block&gt;</code> 等盒子元素内直接添加文本 , 如有特殊情况需要使用 , 请 <el-button type="text" @click="$router.push({path: '/basic/classes#fontsizes'})">预制类 Classes</el-button> 或者自行书写样式进行控制</p>
   </div>
 </template>
 

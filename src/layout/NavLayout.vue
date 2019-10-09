@@ -16,7 +16,9 @@
           </div>
         </div>
         <div class="router-container" :class="{'has-folded': folded}">
-          <router-view></router-view>
+          <transition name="el-fade-in">
+            <router-view></router-view>
+          </transition>
         </div>
       </div>
     </div>

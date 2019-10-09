@@ -2,11 +2,11 @@ module.exports = {
   lintOnSave: false,
   outputDir: "dist",
   assetsDir: "assets",
-  productionSourceMap: false,
+  productionSourceMap: true,
   devServer: {
     proxy: {
       '/apis': {
-        target: 'http://adminwisdom.yuyankeji.cn/',
+        target: 'https://adminwisdom.yuyankeji.cn/',
         changeOrigin: true,  //是否跨域
         pathRewrite: {'^/apis' : ''}, //重定向
         secure: false
