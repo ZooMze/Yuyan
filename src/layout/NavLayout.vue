@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="router-container" :class="{'has-folded': folded}">
-          <transition name="el-fade-in">
+          <transition name="slide-up">
             <router-view></router-view>
           </transition>
         </div>
@@ -37,9 +37,7 @@
         folded: false,
       }
     },
-    
     watch: {
-      
     },
     created () { //页面刷新时 检测路由 并设置activeIndex
       this.activeIndex = this.$route.meta.navIndex
@@ -82,22 +80,3 @@
     },
   }
 </script>
-
-<style lang="less">
-  .slide-enter-active {
-    animation: bounce-in .4s;
-  }
-  .slide-leave-active {
-    animation: bounce-in .4s reverse;
-  }
-  @keyframes bounce-in {
-    0% {
-      width: 64px;
-      overflow: hidden!important;
-    }
-    100% {
-      width: 200px;
-      overflow: hidden!important;
-    }
-  }
-</style>

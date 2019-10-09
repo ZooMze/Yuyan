@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="el-fade-in">
+    <transition name="fade">
       <router-view></router-view>
     </transition>
   </div>

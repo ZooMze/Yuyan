@@ -272,8 +272,10 @@ textarea.el-textarea__inner {
     .router-container {
       display: inline-block;
       width: calc( 100vw - 200px );
+      padding: 15px; 
       max-height: calc( 100vh - 55px );
-      overflow-y: auto; 
+      overflow-y: auto;
+      overflow-x: hidden; 
       animation: fold .3s ease-in-out;
       box-sizing: border-box;
       
@@ -497,9 +499,57 @@ textarea.el-textarea__inner {
   }
 }
 
-/* -----------------------------文档美化样式 ---------------------------*/
+/* ----------------------------- 路由切换动画相关 ---------------------------*/
+.has-folded .default-container {
+  overflow-x: hidden;
+  min-width: calc(100vw - 124px);
+  max-width: calc(100vw - 124px)
+}
 .default-container {
-  margin: 15px;
+  overflow-x: hidden;
+  min-width: calc(100vw - 260px);
+  max-width: calc(100vw - 260px)
+}
+.slide-down-enter-active,
+.slide-down-leave-active,
+.slide-up-enter-active,
+.slide-up-leave-active,
+.fade-enter,
+.fade-leave-active {
+  will-change: transform;
+  transition: all 0.5s ease;
+  position: absolute;
+}
+.fade-enter {
+  opacity: 0;
+  transform: scale(0.1);
+}
+.fade-leave-active {
+  opacity: 0;
+  transform: scale(1);
+}
+.slide-down-enter {
+  opacity: 0;
+  transform: translate3d(0,-50%, 0);
+}
+.slide-down-leave-active {
+  opacity: 0;
+  transform: translate3d(0, 50%, 0);
+}
+.slide-up-enter {
+  opacity: 0;
+  width: calc(100%);
+  transform: translate3d(0, 50%, 0);
+}
+.slide-up-leave-active {
+  opacity: 0;
+  width: calc(100%);
+  transform: translate3d(0,-50%, 0);
+}
+
+/* -----------------------------文档美化样式 ---------------------------*/
+
+.default-container {
   padding: 15px;
   background: #fff;
 }

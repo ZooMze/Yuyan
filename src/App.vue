@@ -92,8 +92,8 @@
   }
 </script>
 
-<style lang="less" scoped>
-  #app {
+<style lang="less">
+  #app, body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
