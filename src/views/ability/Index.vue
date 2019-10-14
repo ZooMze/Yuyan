@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="fade">
+    <transition name="slide-up">
       <keep-alive>
         <router-view></router-view>
       </keep-alive>

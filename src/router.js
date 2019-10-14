@@ -25,11 +25,14 @@ const form = () => import('./views/form/Index.vue')
 const abilityIndex   = () => import('./views/ability/Index.vue')
 const keepAlive      = () => import('./views/ability/KeepAlive.vue')
 const keepAliveInner = () => import('./views/ability/KeepAliveInner.vue')
+const authority      = () => import('./views/ability/Authority.vue')
+const globalData      = () => import('./views/ability/GlobalData.vue')
 
 // Example
 const exampleIndex = () => import('./views/example/Index.vue')
 const list         = () => import('./views/example/List.vue')
 const detail       = () => import('./views/example/Detail.vue')
+const charts       = () => import('./views/example/Charts.vue')
 
 
 // 商城
@@ -54,6 +57,7 @@ Vue.use(Router)
 // meta.showNavLayout 当前页是否需要渲染导航
 // meta.hidden        当前页是否要在导航中隐藏(详情页需要隐藏)
 // meta.redirectName  在导航中隐藏的页面重新定位导航的名称(详情页需要配置此参数, 否则导航不会重新定位)
+// meta.detail        标明当前页面是属于详情页 , 顶部的返回按钮将会显示
 
 export default new Router({
   mode: "history",
@@ -160,6 +164,7 @@ export default new Router({
       path: '/ability',
       name: 'ability',
       component: abilityIndex,
+      redirect: { name: 'keepAlive' },
       meta: {
         routerName: '功能 Ability',
         icon: 'el-icon-files',
@@ -167,7 +172,7 @@ export default new Router({
       },
       children: [
         {
-          path: '/keepAlive',
+          path: 'keepAlive',
           name: 'keepAlive',
           component: keepAlive,
           meta: {
@@ -184,44 +189,74 @@ export default new Router({
             hidden: true,
             keepAlive: true,
             showNavLayout: true,
-            redirectName:  'keepAlive'
+            redirectName:  'keepAlive',
+            detail: true,
+          },
+        },
+        {
+          path: 'authority',
+          name: 'authority',
+          component: authority,
+          meta: {
+            routerName: '权限 Authority',
+            showNavLayout: true,
+          },
+        },
+        {
+          path: 'globalData',
+          name: 'globalData',
+          component: globalData,
+          meta: {
+            routerName: '全局 GlobalData',
+            showNavLayout: true,
           },
         }
       ]
     },
-    // {
-    //   path: '/example',
-    //   name: 'example',
-    //   component: exampleIndex,
-    //   redirect: {name : 'list'},
-    //   meta: {
-    //     routerName: '实例 Example',
-    //     icon: 'el-icon-star-off',
-    //     showNavLayout: true
-    //   },
-    //   children: [
-    //     {
-    //       path: '/list',
-    //       name: 'list',
-    //       component: list,
-    //       meta: {
-    //         routerName: '列表页 list',
-    //         keepAlive: true,
-    //         showNavLayout: true
-    //       },
-    //     },
-    //     {
-    //       path: 'detail',
-    //       name: 'detail',
-    //       component: detail,
-    //       meta: {
-    //         hidden: true,
-    //         showNavLayout: true,
-    //         redirectName:  'list'
-    //       },
-    //     }
-    //   ]
-    // },
+    {
+      path: '/example',
+      name: 'example',
+      component: exampleIndex,
+      redirect: {name : 'list'},
+      meta: {
+        routerName: '实例 Example',
+        icon: 'el-icon-star-off',
+        showNavLayout: true
+      },
+      children: [
+        {
+          path: 'list',
+          name: 'list',
+          component: list,
+          meta: {
+            routerName: '列表页 List',
+            keepAlive: true,
+            showNavLayout: true
+          },
+        },
+        {
+          path: 'detail',
+          name: 'detail',
+          component: detail,
+          meta: {
+            hidden: true,
+            showNavLayout: true,
+            redirectName:  'list',
+            keepAlive: true,
+            detail: true,
+          },
+        },
+        {
+          path: 'charts',
+          name: 'charts',
+          component: charts,
+          meta: {
+            routerName: '图表页 Charts',
+            showNavLayout: true,
+          },
+        },
+      ]
+    },
     // {
     //   path: '/menuExapmle',
     //   name: 'meunExample',

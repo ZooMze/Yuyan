@@ -10,7 +10,7 @@
     <h3>字号</h3>
     <p>重新修改了文本标签的样式 , 开发者可以直接使用 : </p>
     <div class="demo-table">
-      <el-table :data="fonts">
+      <el-table class="margin-b-15" :data="fonts">
         <el-table-column label="标签" width="180">
           <template slot-scope="scope">
             <span :class="scope.row.tag"> {{ returnText(scope.row, 'tag')}} </span>
@@ -39,7 +39,7 @@
       </el-table>
     </div>
     <h3>标签</h3>
-    <p>所有文本内容都应包含在标签内 , 避免直接在 <code>&lt;div&gt;</code> , <code>&lt;block&gt;</code> 等盒子元素内直接添加文本 , 如有特殊情况需要使用 , 请 <el-button type="text" @click="$router.push({path: '/basic/classes#fontsizes'})">预制类 Classes</el-button> 或者自行书写样式进行控制</p>
+    <p>所有文本内容都应包含在标签内 , 避免直接在 <code>&lt;div&gt;</code> , <code>&lt;block&gt;</code> 等盒子元素内直接添加文本 , 如有特殊情况需要使用 , 请 <el-button type="text" @click="$router.push({name: 'classes'})">预制类 Classes</el-button> 或者自行书写样式进行控制</p>
   </div>
 </template>
 

@@ -11,7 +11,7 @@
     </el-row>
     <h3>其他颜色</h3>
     <p>在常规颜色无法引导其余功能操作或需要进行颜色区分时 , 进行补充说明的颜色</p>
-    <el-row :gutter="15">
+    <el-row class="margin-b-15" :gutter="15">
       <el-col :span="6">
         <div class="demo-block bg-success text-white">成功颜色 #67C23A</div>
       </el-col>
@@ -43,7 +43,7 @@
     </el-row>
     <div class="tip-area">
       <p>为避免样式覆盖ElementUI内的样式 , 所以在非 <code>&lt;p&gt;</code> 、 <code>&lt;li&gt;</code> 或 <code>&lt;small&gt;</code> 以外的元素内直接放入文本内容, 将不能应用默认的颜色信息</p>
-      <p>如果有特殊情况需要使用 , 请使用 <el-button type="text" @click="$router.push({path: '/basic/classes#fontcolor'})">预制类 Classes</el-button> 来修正文本的颜色</p>
+      <p>如果有特殊情况需要使用 , 请使用 <el-button type="text" @click="$router.push({name: 'classes'})">预制类 Classes</el-button> 来修正文本的颜色</p>
       <p>错误示范 : <div>这是在div内的文本 #000000</div></p>
     </div>
     <h3>示例</h3>

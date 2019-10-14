@@ -7,7 +7,7 @@
     <h3>基本</h3>
     <p>提供最基本的样式</p>
     <div>
-      <el-row :gutter="15">
+      <el-row class="margin-b-15" :gutter="15">
         <el-col :span="12">
           <el-table :data="basic">
             <el-table-column prop="value" label="类名">
@@ -21,10 +21,49 @@
         </el-col>
       </el-row>
     </div>
+
+    <h3>
+      <el-popover placement="bottom" trigger="hover" title="默认边距">
+        <div>
+          <p>
+            全局自带边距的元素 <code>&lt;h&gt;</code> 标签 ,  <code>&lt;p&gt;</code> 标签等 , 自带下边距15px;
+          </p>
+        </div>
+        <span slot="reference"> 边距 <i class="el-icon-question"></i></span>
+      </el-popover>
+    </h3>
+    <p>为保证视觉的统一 , 框架设计为在主体部分 统一使用 <strong>15px</strong> 的边距 , 因此提供了一些快捷边距类 , 分为 ' 0px边距 ' 和 ' 15px正常边距 '
+    <pre>
+      // 用法
+      class="margin *-direction* *-length*" // 快速添加外边距
+      class="padding *-direction* *-length*" // 快速添加内边距
+      // 示例
+      class="margin-t-15" // 快速设置上外边距 = 15px
+      class="padding-tb-15" // 快速设置上下内边距 = 15px
+      class="margin-0" // 快速设置四向外边距 = 0</pre>
+    <div>
+      <el-row class="margin-b-15" :gutter="15">
+        <el-col :span="12">
+          <h4>direction 可选值</h4>
+          <el-table :data="direction">
+            <el-table-column prop="value" label="值"></el-table-column>
+            <el-table-column prop="info" label="描述"></el-table-column>
+          </el-table>
+        </el-col>
+        <el-col :span="12">
+          <h4>length 可选值</h4>
+          <el-table :data="length">
+            <el-table-column prop="value" label="值"></el-table-column>
+            <el-table-column prop="info" label="描述"></el-table-column>
+          </el-table>
+        </el-col>
+      </el-row>
+    </div>
+
     <h3 id="fontsizes">文本字号</h3>
     <p>在非预期的标签中放入文本 , 会出现样式无法覆盖的问题 , 对此预定义了一系列文本大小的预制类</p>
     <div>
-      <el-row :gutter="15">
+      <el-row class="margin-b-15" :gutter="15">
         <el-col :span="12">
           <el-table :data="fontSizes" stripe>
             <el-table-column  label="类名">
@@ -45,7 +84,7 @@
     <h3 id="fontcolor">文本色彩</h3>
     <p>结合 <el-button type="text" size="mini" @click="$router.push({name: 'color'})"> 色彩 Color</el-button> 的颜色  根据不同的业务情况利用辅助颜色对 <strong>文字</strong> 进行标注和补充等</p>
     <div>
-      <el-row :gutter="15">
+      <el-row class="margin-b-15" :gutter="15">
         <el-col :span="12">
           <el-table :data="classes" stripe>
             <el-table-column prop="value" label="类名">
@@ -60,32 +99,7 @@
       </el-row>
     </div>
 
-    <h3>外边距</h3>
-    <p>为保证视觉的统一 , 框架设计为在主体部分 统一使用 <strong>15px</strong> 的外边距 , 因此提供了一些快捷外边距类 , 分为 ' 0px外边距 ' 和 ' 15px正常外边距 '
-    <pre>
-      // 用法
-      class="margin *-direction* *-length*" // 快速添加外边距
-      // 示例
-      class="margin-t-15" // 快速设置上外边距 = 15px
-      class="margin-0" // 快速设置四向外边距 = 0</pre>
-    <div>
-      <el-row :gutter="15">
-        <el-col :span="12">
-          <h4>direction 可选值</h4>
-          <el-table :data="direction">
-            <el-table-column prop="value" label="值"></el-table-column>
-            <el-table-column prop="info" label="描述"></el-table-column>
-          </el-table>
-        </el-col>
-        <el-col :span="12">
-          <h4>length 可选值</h4>
-          <el-table :data="length">
-            <el-table-column prop="value" label="值"></el-table-column>
-            <el-table-column prop="info" label="描述"></el-table-column>
-          </el-table>
-        </el-col>
-      </el-row>
-    </div>
+    
   </div>
 </template>
 <script>
@@ -186,31 +200,31 @@
         direction: [
           {
             value: '-t',
-            info: 'top 上外边距'
+            info: 'top 上边距'
           },
           {
             value: '-r',
-            info: 'right 右外边距'
+            info: 'right 右边距'
           },
           {
             value: '-b',
-            info: 'bottom 底外边距'
+            info: 'bottom 底边距'
           },
           {
             value: '-l',
-            info: 'left 左外边距'
+            info: 'left 左边距'
           },
           {
             value: '-lr',
-            info: 'left & right 左右外边距'
+            info: 'left & right 左右边距'
           },
           {
             value: '-tb',
-            info: 'top & bottom 上下外边距'
+            info: 'top & bottom 上下边距'
           },
           {
             value: 'null',
-            info: 'all 全方向外边距'
+            info: 'all 全方向边距'
           }
         ],
         length: [

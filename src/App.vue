@@ -22,7 +22,6 @@
       "$route": {
         handler (to, from) {
           // 导航级跳转
-          // debugger
           if(to.meta.routerName && from.meta.routerName) {
             // 还原分页
             this.$store.commit('changePage', 1)
@@ -40,6 +39,8 @@
               })
             }
           }
+          // 跳转后 保存上一次路由的信息
+          this.$store.commit('changeStatus', {key: 'historyRoute', value: {name: from.name || '' , routerName: from.meta.routerName || ''}})
           
         },
         deep: true

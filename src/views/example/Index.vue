@@ -1,8 +1,10 @@
 <template>
   <div>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <transition name="slide-up">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 <script>

@@ -4,13 +4,14 @@
 <template>
   <div class="default-container">
     <h2>引言</h2>
-    <h3>与燕科技 - 前端样式框架 v1.1</h3>
+    <h3>与燕科技 - 前端样式框架 v1.2</h3>
     <small>by ZooMze & Qingqing Yang</small>
     <ul>
       <li><p>基于 <a href="https://element.eleme.cn/2.11/#/zh-CN" target="_blank">elmentUI</a> 进行搭建, 并对其做出本地化调整</p></li>
       <li><p>本样式框架旨在为开发人员提供更快捷高效的开发体验, 简化以至于省去繁琐的样式修改流程</p></li>
       <li><p>框架自适应宽度 , 为达到最佳显示效果 , 页面宽度至少大于 <strong>1280px</strong></p></li>
       <li><p>预制了快捷并符合设计规范的样式(class), 开发者无需自己书写基本的样式</p></li>
+      <li><p>预定义了多种变量以及函数 , 方便快捷调用</p></li>
       <li><p>定制一套完整的多类型规范模板, 复用模板可以直接生成一个完整的模块(block)</p></li>
     </ul>
     <p><i class="el-icon-back"></i> 点击左侧导航开始浏览~</p>
@@ -34,9 +35,17 @@
       return {
         activities: [
           {
-            content: '修正 细则内容 ,优化等',
-            timestamp: '2019-10-08',
+            content: '添加了 权限 , 全局变量 , 图表 ; 版本改为v1.2 ',
+            timestamp: '2019-10-12',
             type: 'primary',
+          },
+          {
+            content: '添加了 列表页 > 详情页 ; 优化 详情页下拉后顶部的返回按钮 , 优化了使用体验',
+            timestamp: '2019-10-08',
+          },
+          {
+            content: '修正 细则内容 ; 版本改为v1.1; 优化等',
+            timestamp: '2019-10-08',
           },
           {
             content: '更新 表格',

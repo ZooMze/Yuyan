@@ -2,13 +2,13 @@
   <div class="default-container">
     <h2 class="margin-t-0">布局 Layout</h2>
     <p>整体页面为复合式布局 , 最外层为左右分布 , 然后右侧部分为上下分布, 布局内一个功能区就是一个模块</p>
-    <el-button type="primary" @click="showLayout">点击查看布局</el-button>
+    <el-button class="margin-b-15" size="small" type="primary" @click="showLayout">点击查看布局</el-button>
     <p>默认情况下一个模块占满全部宽度 , 多个模块占用一行时使用栅格进行布局</p>
 
     <h3>模块化</h3>
     <p>本样式框架采用的是模块化布局模式, 即每个功能是一个单独的区域</p>
     <div class="margin-t-15 demo-block">
-      <el-page-header title="返回" content="页面标题"></el-page-header>
+      <el-page-header class="margin-b-15" title="返回" content="页面标题"></el-page-header>
       <h2 class="margin-b-0">功能模块1...</h2>
       <h2 class="margin-b-0">功能模块2... <br> 功能模块2...</h2>
     </div>
@@ -81,7 +81,6 @@
       left: 50px;
     }
     .header {
-      top: -24px;
       left: calc( 50vw + 100px);
     }
     .main {

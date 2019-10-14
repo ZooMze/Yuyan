@@ -10,6 +10,12 @@ export default new Vuex.Store({
       pageSize: 15,
       pageNum: 1,
     },
+    loading: false, // 全局loading
+    scrollTop: 0, // 页面主体卷去的高度
+    historyRoute: { // 上一个router的信息 用于返回
+      name: '', //名称
+      routerName: '', // 显示的名称
+    },
     gender: [
       {
         label: '男',
@@ -42,6 +48,15 @@ export default new Vuex.Store({
      */
     updateUserData(state, data) {
       state.userData[data.key] = data.value
+    },
+    /**
+     * 根据key值修改数据
+     * @param  {[type]} state [description]
+     * @param  {[type]} data  [description]
+     * @return {[type]}       [description]
+     */
+    changeStatus(state, data) {
+      state[data.key] = data.value
     },
     /**
      * 改变分页数据

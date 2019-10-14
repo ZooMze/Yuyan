@@ -14,7 +14,7 @@
     stripe // 斑马纹
     ...
     &gt;
-  &lt;el-table&gt;
+  &lt;/el-table&gt;
   </pre>
     
     <h3>简单示例</h3>
@@ -46,7 +46,7 @@
 
     <h3>实时操作</h3>
     <p>在复杂表单中 , 为了简化页面的操作 , 表格可以动态直接编辑, 而不需要打开Dialog或者进入详情编辑</p>
-    <p>用户点击某个单元格 , 元素变为可编辑的模式 , 输入内容后按下回车 或点击外部十七失去光标时 , 变回原本的文本模式</p>
+    <p>用户点击某个单元格 , 元素变为可编辑的模式 , 输入内容后按下回车 或点击外部而失去光标时 , 变回原本的文本模式</p>
     <div class="warning-area">
       <p>* 此功能有局限性 , 修改复杂表格项时 , 此功能无法满足需求</p>
       <p>* 使用此功能时 , 表格数据不会 <strong>实时保存</strong> , 需要一个按钮来将已编辑过的整个表格进行提交保存</p>
@@ -77,7 +77,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <p>此功能的具体实现逻辑可参考代码 <code>views/table/Index.vue</code> </p>
+    <p class="margin-t-15">此功能的具体实现逻辑可参考代码 <code>views/table/Index.vue</code> </p>
   </div>
 </template>
 
