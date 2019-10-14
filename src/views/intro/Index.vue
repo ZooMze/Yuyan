@@ -35,9 +35,13 @@
       return {
         activities: [
           {
+            content: '丰富化了 全局 , 百度地图改为Vue组件式调用',
+            timestamp: '2019-10-14',
+            type: 'primary',
+          },
+          {
             content: '添加了 权限 , 全局变量 , 图表 ; 版本改为v1.2 ',
             timestamp: '2019-10-12',
-            type: 'primary',
           },
           {
             content: '添加了 列表页 > 详情页 ; 优化 详情页下拉后顶部的返回按钮 , 优化了使用体验',

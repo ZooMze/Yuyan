@@ -4,7 +4,7 @@
       <div class="main-area">
         <div>&nbsp;</div>
         <transition name="el-zoom-in-center">
-          <h1 v-show="timePass > 500" class="align-center">与燕科技前端通用框架 v1.0</h1>
+          <h1 v-show="timePass > 500" class="align-center">与燕科技前端通用框架 v1.2</h1>
         </transition>
         <transition name="el-zoom-in-center">
           <h2 v-show="timePass > 1000" class="align-center">by Zoomze</h2>
