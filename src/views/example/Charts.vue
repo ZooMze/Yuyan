@@ -6,7 +6,7 @@
     
     <el-main>
       <div class="block-wrap">
-        <h3 class="block-label">图表</h3>
+        <h3 class="block-label">图表 ECharts</h3>
         <p>图表内容通常是模块化 , 包含在 <code>&lt;div class="block-wrap"&gt;</code> 中</p>
         <p>更多用法请参考 <a href="https://www.echartsjs.com/examples/zh/index.html">Echarts</a></p>
         <div class="tip-area">
@@ -28,11 +28,14 @@
       </el-row>
 
       <div class="block-wrap">
-        <h3 class="block-label">地图</h3>
+        <h3 class="block-label">地图 BaiduMap</h3>
         <p>实现基础的地图需求功能</p>
         <p>更多用法请参考 <a href="https://dafrok.github.io/vue-baidu-map/#/zh/start/usage">Vue-Baidu-Map</a></p>
         <!-- <p><el-button type="primary" @click="getData">测试数据</el-button></p> -->
-        <baidu-map class="bm-view margin-b-15" center="成都" :scroll-wheel-zoom="true">
+        <baidu-map
+          class="bm-view margin-b-15"
+          :center="{lng: 104.06, lat: 30.67}"
+          :zoom="13">
           <bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="true"></bm-overview-map>
           <bm-navigation anchor="BMAP_ANCHOR_TOP_LEFT"></bm-navigation>
         </baidu-map>
@@ -40,7 +43,9 @@
           <p>地图组件被注册在全局下 , 全局直接使用</p>
         </div>
         <div class="warning-area">
-          <p>通常地图组件占据的页面宽度较宽甚至横跨了整个页面宽度 , 请结合页面展示情况决定是否使用 <code>:scroll-wheel-zoom="true"</code> 或者协商调整页面布局 , 因为它会干扰到用户正常的滚轮行为 !</p>
+          <h4 class="margin-b-0">滚轮缩放 <code>:scroll-wheel-zoom="true"</code> 的问题</h4>
+          <p>由于百度地图默认定位问题 , 页面中出现滚动条时 , 滚轮缩放会产生位置偏移 , 偏移量就是滚动的长度 , 此功能需 <strong>谨慎使用</strong> !</p>
+          <p>通常地图组件占据的页面宽度较宽甚至横跨了整个页面宽度 , 请结合页面展示情况决定是否使用或者协商调整页面布局 , 因为它会干扰到用户正常的滚轮行为</p>
         </div>
         
       </div>

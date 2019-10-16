@@ -28,6 +28,9 @@ const keepAliveInner = () => import('./views/ability/KeepAliveInner.vue')
 const authority      = () => import('./views/ability/Authority.vue')
 const globalData      = () => import('./views/ability/GlobalData.vue')
 
+// Components
+const components = () => import('./views/components/Index.vue')
+
 // Example
 const exampleIndex = () => import('./views/example/Index.vue')
 const list         = () => import('./views/example/List.vue')
@@ -212,6 +215,17 @@ export default new Router({
           },
         }
       ]
+    },
+    {
+      path: '/components',
+      name: 'components',
+      component: components,
+      meta: {
+        routerName: '组件 Components',
+        icon: 'el-icon-box',
+        showNavLayout: true
+      },
+      children: []
     },
     {
       path: '/example',

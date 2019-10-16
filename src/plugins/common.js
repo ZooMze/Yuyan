@@ -5,10 +5,10 @@ import qs from 'qs'
 const Vue = new vue({ router, store }) // 注册router, 实例中调用
 
 export default {
-  // basePath: `${window.location.origin}/apis`,
-  basePath:   'https://adminwisdom.yuyankeji.cn/',
-  uploadPath: `${window.location.origin}/apis/admin/activity/wangEditorImg`,
-  filePath:   `https://apiwisdom.yuyankeji.cn/`,
+  // basePath: `${window.location.origin}/apis/`,
+  basePath:   'https://test1meeting.yuyankeji.cn/',
+  uploadPath: `${window.location.origin}/apis/meeting/meeting/appImg`,
+  filePath:   `https://test1meeting.yuyankeji.cn/`,
   // 邮箱
   email: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
   // 手机号
