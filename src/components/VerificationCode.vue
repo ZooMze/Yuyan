@@ -2,7 +2,8 @@
  * 自定义发送验证码组件 
  在父组件调用语法糖v-model 子组件中同样使用 并抛出事件 达到v-model的目的
  by ZooMze 2019/10/15
-
+ 参数: 
+  url: String, //发送验证码的URL
  */
 <template>
   <div>
@@ -19,6 +20,12 @@
 
 <script>
   export default {
+    props: {
+      url: {
+        type: String,
+        defaul: '',
+      }
+    },
     data () {
       return {
         inputValue: '',

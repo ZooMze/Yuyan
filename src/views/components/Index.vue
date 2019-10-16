@@ -22,9 +22,14 @@
         <el-button type="primary" @click="checkValidate('formCode')">检查表单</el-button>
       </el-form-item>
     </el-form>
-    
+    <div class="tip-area">
+      <p>收取验证码组件的输入字段本身不是必填字段 , 但是组件内已经做了非空验证</p>
+      <p>使用时请 <strong>不要</strong> 给本组件所在的表单项中添加验证</p>
+    </div>
+
     <h3>上传</h3>
     <p>直接定义一套完整的图片上传内容, 同时可以实现同页面下多个上传组件已最少的代码行数进行工作</p>
+
     <el-form :model="formUpload" :rules="formUploadRules" size="small" ref="formUpload" label-width="100px" label-position="left" label-suffix="：">
       <el-form-item label="图片" prop="imgList">
         <el-upload
@@ -44,29 +49,56 @@
         <el-button type="primary" @click="checkValidate('formUpload')">检查表单</el-button>
       </el-form-item>
     </el-form>
+    <div class="tip-area">
+      <p>上传组件即使封装为一行代码的组件, 仍需要响应多个事件 , 所以作为复用代码块进行使用</p>
+      <p>使用时需要放入关联的事件回调</p>
+    </div>
 
     <h3>标签编辑</h3>
-
+    <p>实现动态编辑标签项 , 在标签变化时回调事件 <code>@changed</code></p>
+    <p>本例也展示了多个重复组件时 , 便捷地进行表单验证 , 详见源码</p>
+    <el-form :model="formTags" :rules="formTagsRules" size="small" ref="formTags" label-width="100px" label-position="left" label-suffix="：">
+      <el-form-item label="标签项" prop="tags">
+        <tag-editor ref="formTags" :tags="formTags.tags" @changed="checkValidate('formTags', 'tags')"></tag-editor>
+      </el-form-item>
+      <el-form-item label="标签项2" prop="tags2">
+        <tag-editor  ref="formTags2" :tags="formTags.tags2" @changed="checkValidate('formTags', 'tags2')"></tag-editor>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="checkValidate('formTags')">检查表单</el-button>
+      </el-form-item>
+    </el-form>
+    <div class="tip-area">
+      <p>使用此组件时 , 在无特殊情况下都应处理 <code>@changed</code> 事件 , 进行动态表单验证</p>
+    </div>
+    <div class="warning-area">
+      <p>当重复使用多个相同组件时 , 最好使用不同的 <code>ref="xxx"</code> 来区分</p>
+    </div>
   </div>
 </template>
 
 <script>
-  import uploadImg from '@/UploadImg.vue'
   import verificationCode from '@/VerificationCode.vue'
+  import tagEditor from '@/TagEditor.vue'
   export default {
     components: {
       'verification-code': verificationCode,
-      'upload-img': uploadImg
+      'tag-editor': tagEditor
     },
-    mounted() {
-      window.c = this
+    watch:{
+      'formTags.tags': {
+        handler(n,o) {
+          console.log(n)
+        }
+      }
     },
     data () {
+      /* 长度验证 */
       var validateLength = (rule, value, callback) => {
         if (!!value && value.length > 0 ) {
           callback();
         } else {
-          callback(new Error('请上传照片'));
+          callback(new Error());
         }
       };
       return {
@@ -82,21 +114,40 @@
           vCode: ''
         },
         formCodeRules: {
-          vCode: [{ required: true, trigger: 'blur', message: '请输入验证码!' }]
+          vCode: [{ required: true, trigger: 'blur', message: '请输入验证码 !' }]
         },
         formUpload: {
           imgList: []
         },
         formUploadRules: {
-          imgList: [{ validator: validateLength, trigger: 'change'}]
+          imgList: [{ required: true, validator: validateLength, trigger: 'change', message: '请添加图片 !'}]
+        },
+        formTags: {
+          tags: [],
+          tags2: []
+        },
+        formTagsRules: {
+          tags: [{ required: true, validator: validateLength, trigger: 'blur', message: '请添加标签项 !'}],
+          tags2: [{ required: true, validator: validateLength, trigger: 'blur', message: '请添加标签项 !'}]
         },
       }
     },
+    mounted() {
+      window.c = this
+    },
     methods: {
-      checkValidate(formName) {
-        this.$refs[formName].validate(valid => {
-          console.log(valid)
-        })
+      /**
+       * 表单验证的方法, 方便进行快捷验证
+       * @param  {[type]} formName [description]
+       * @param  {[type]} prop     [description]
+       * @return {[type]}          [description]
+       */
+      checkValidate(formName, prop) {
+        if(prop) {
+          this.$refs[formName].validateField(prop, valid => {})
+        } else {
+          this.$refs[formName].validate(valid => {})
+        }
       },
       handleSuccess(response, file, fileList, formName) {
         this[formName].imgList = fileList

@@ -140,6 +140,13 @@ to { width: calc( 100vw - 200px ) };
   padding-top: 8px;
   padding-bottom: 8px;
 }
+/* 加高表单验证的错误信息显示*/
+.el-form-item--small.el-form-item {
+  margin-bottom: 20px;
+}
+.el-form-item--small .el-form-item__error {
+  padding-top: 5px;
+}
 
 /**
  * 左侧导航
@@ -229,19 +236,6 @@ textarea.el-textarea__inner {
  */
 .el-tag {
   margin-right: 15px;
-  margin-bottom: 7.5px;
-}
-.button-new-tag {
-  height: 32px;
-  line-height: 30px;
-  margin-bottom: 7.5px;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-.input-new-tag {
-  width: 90px;
-  margin-bottom: 7.5px;
-  vertical-align: top;
 }
 .el-checkbox__label, .el-radio__label{
   font-weight: 500!important;
@@ -371,78 +365,76 @@ textarea.el-textarea__inner {
     line-height: 24px;
   }
 }
-.under-page-header {
-  .el-col {
-    margin-top: 15px;
-  }
-  .el-col > div {
-    padding: 15px;
-    min-height: 100px;
-    background: #fff;
-  }
-  /* 顶部的计数器 */
-  .col-count {
-    .count-number {
-      margin-top: 15px;
-      margin-bottom: 15px;
-      font: 30px bold;
-      text-align: center;
-    }
-    .count-title {
-      margin-top: 0;
-      font: 16px bold;
-      text-align: center;
-    }
-  }
+
+/* 顶部的计数器 */
+.count-number {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font: 30px bold;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
 }
+.count-title {
+  margin-top: 0;
+  font: 16px bold;
+  text-align: center;
+}
+
 .el-main {
   padding: 0;
   overflow: hidden;
-  .block-wrap {
-    padding: 15px;
-    margin-top: 15px;
-    & >*:first-child { /* 消除block-wrap中 最后一个元素的上边距 放置外内边距叠加*/
-      margin-top: 0!important;
-    }
-    & >*:last-child { /* 消除block-wrap中 最后一个元素的下边距 放置外内边距叠加*/
-      margin-bottom: 0!important;
-    }
-    background: #fff;
-    .block-label {
-      margin-top: 0;
-      padding-left: 10px;
-      border-left: 4px solid #0E82EB;
-    }
-    /*图片预览(栅格)的调整*/
-    .detail-form .el-form-item {
-      margin-top: 0;
-      margin-bottom: 8px; // 展示类的表单 , 不需要验证的预留空间
-    }
-    .form-label {
-      margin-top: 0;
-      margin-bottom: 0;
-      height: 32px;
-      line-height: 32px;
-      position: relative;
-      font-size: 14px;
-      font-weight: normal;
-      color: @color2;
-    }
-    /* 图片预览相关样式调整 */
-    .images-preview {
-      & .el-col {
-        height: 20vh;
-        padding: 7.5px;
-        .el-image {
-          height: 100%;
-          width: 100%;
-          .el-icon-circle-close {
-            color: #fff;
-          }
+}
+/* 基本的包裹元素 */
+.block-wrap {
+  padding: 15px;
+  margin-top: 15px;
+  & >*:first-child { /* 消除block-wrap中 最后一个元素的上边距 放置外内边距叠加*/
+    margin-top: 0!important;
+  }
+  & >*:last-child { /* 消除block-wrap中 最后一个元素的下边距 放置外内边距叠加*/
+    margin-bottom: 0!important;
+  }
+  background: #fff;
+  .block-label {
+    margin-top: 0;
+    padding-left: 10px;
+    border-left: 4px solid #0E82EB;
+  }
+  /*图片预览(栅格)的调整*/
+  .detail-form .el-form-item {
+    margin-top: 0;
+    margin-bottom: 8px; // 展示类的表单 , 不需要验证的预留空间
+  }
+  .form-label {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+    color: @color2;
+  }
+  /* 图片预览相关样式调整 */
+  .images-preview {
+    & .el-col {
+      height: 20vh;
+      padding: 7.5px;
+      .el-image {
+        height: 100%;
+        width: 100%;
+        .el-icon-circle-close {
+          color: #fff;
         }
       }
     }
-    .card-item  {
+  }
+  /* 附带信息的卡片列表 */
+  .info-card-row {
+    .el-card {
       border: none;
       border-radius: 0;
       & .el-card__body{
@@ -460,6 +452,20 @@ textarea.el-textarea__inner {
           justify-content: space-between;
           padding: 0 15px;
         }
+      }
+    }
+  }
+  /* 信息浮于图片之上的卡片列表*/
+  .image-card-row {
+    .el-col {
+      padding-top: 7.5px;
+      padding-bottom: 7.5px;
+    }
+    .el-card__body {
+      padding: 0;
+      height: 150px;
+      .el-image {
+        height: 100%;
       }
     }
   }

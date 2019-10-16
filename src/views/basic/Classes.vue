@@ -26,8 +26,9 @@
       <el-popover placement="bottom" trigger="hover" title="默认边距">
         <div>
           <p>
-            全局自带边距的元素 <code>&lt;h&gt;</code> 标签 ,  <code>&lt;p&gt;</code> 标签等 , 自带下边距15px;
+            全局自带边距的元素: <code>&lt;h&gt;</code> 标签 ,  <code>&lt;p&gt;</code> 标签等 , 自带下边距15px ; <code>&lt;div class="block-wrap"&gt;</code> , 自带上边距15px
           </p>
+          <p>需要覆盖这些边距样式时请自行写样式</p>
         </div>
         <span slot="reference"> 边距 <i class="el-icon-question"></i></span>
       </el-popover>

@@ -35,9 +35,17 @@
       return {
         activities: [
           {
+            content: '组件 添加了 标签编辑功能, 添加了工作台实例',
+            timestamp: '2019-10-16',
+            type: 'primary',
+          },
+          {
+            content: '添加了 组件',
+            timestamp: '2019-10-15',
+          },
+          {
             content: '丰富化了 全局 , 百度地图改为Vue组件式调用',
             timestamp: '2019-10-14',
-            type: 'primary',
           },
           {
             content: '添加了 权限 , 全局变量 , 图表 ; 版本改为v1.2 ',

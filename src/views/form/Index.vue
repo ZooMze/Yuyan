@@ -67,37 +67,8 @@
             <small class="margin-0">注: 附带信息的el-input不可使用el-input-number , 为达到验证的效果请使用正则。 此处搜索使用栅格布局 , 试着改变浏览器的宽度查看效果</small>
 
           </el-form-item>
-          <el-form-item label="图片上传" prop="imageList">
-            <upload></upload>
-            <!-- <el-upload
-  class="upload-demo"
-  action="https://jsonplaceholder.typicode.com/posts/"
-  :on-preview="handlePreview"
-  :on-remove="handleRemove"
-  multiple
-  :limit="3"
-  :on-exceed="handleExceed"
-  :file-list="form.imageList">
-  <el-button size="small" type="primary">点击上传</el-button>
-  <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-</el-upload> -->
-            <!-- <el-upload
-              :action="`${$common.basePath}/manage/housing_information/appImg`"
-              list-type="picture-card"
-              :on-success="(response, file) => {handleSuccess('form', response, file)}"
-              :on-preview="handlePreview"
-              :on-remove="(file, fileList) => {handleRemove('form', file, fileList)}"
-              :file-list="form.imageList"
-              :limit="20"
-              multiple
-              :on-exceed="handleExceed"
-              name="img">
-              <i slot="default"  v-if="true" class="el-icon-plus"></i>         
-            </el-upload>
-            <el-dialog :visible.sync="imgPreviewDialog" class="transparent-dialog">
-              <img :src="targetUrl">
-            </el-dialog> -->
-          </el-form-item>
+          <!-- <el-form-item label="图片上传" prop="imageList">
+          </el-form-item> -->
           <el-form-item label="多选框">
             <el-checkbox-group v-model="form.checkboxs">
               <el-checkbox value="值1" label="标签1"></el-checkbox>
@@ -126,25 +97,7 @@
             </el-date-picker>
           </el-form-item>
           <el-form-item label="标签">
-            <el-tag
-              :key="tag"
-              v-for="tag in form.tags"
-              closable
-              :disable-transitions="false"
-              @close="deleteTag(tag)">
-              <span>{{tag}}</span>
-            </el-tag>
-            <el-input
-              class="input-new-tag"
-              v-if="tagInputVisible"
-              v-model.trim="tagInputValue"
-              ref="saveTagInput"
-              size="small"
-              @keyup.enter.native="handleTagInputConfirm"
-              @blur="handleTagInputConfirm"
-            >
-            </el-input>
-            <el-button v-else class="button-new-tag" size="small" @click="showTagInput">+ 添 加</el-button>
+            <tag-editor :tags="form.tags"></tag-editor>
             <small class="margin-0 display-block">点击添加后输入内容 , 输入完成后按下Enter键即可</small>
           </el-form-item>
           <el-form-item label-width="0">
@@ -189,10 +142,10 @@
 </template>
 
 <script>
-  import upload from "../../components/UploadImg.vue"
+  import tagEditor from '@/TagEditor.vue'
   export default {
     components: {
-      upload
+      'tag-editor': tagEditor
     },
     data () {
       return {

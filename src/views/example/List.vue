@@ -4,9 +4,9 @@
       <h3>列表页</h3> 
     </el-header>
     
-    <el-row :gutter="15" class="under-page-header">
+    <el-row :gutter="15">
       <el-col :span="8" v-for="item in 3" :key="`${item}count`">
-        <div class="col-count">
+        <div class="block-wrap">
           <p class="count-number text-primary">999</p>
           <p class="count-title" v-if="item == 1">
             <el-popover
@@ -129,11 +129,11 @@
   <el-container direction="vertical">
     <el-header>
       // 正常标题
-      <h3 class="margin-0">列表页</h3>
+      <h3>列表页</h3>
       // 详情中的标题
       <el-page-header @back="goBack" title="返回"content="详情页面"></el-page-header>
     </el-header>
-    <el-main>
+    <el-main> // 没有样式
       <div class="block-wrap"> // 模块包裹元素 (自带paddding: 15px;)
       ...
       </div>

@@ -36,6 +36,7 @@ const exampleIndex = () => import('./views/example/Index.vue')
 const list         = () => import('./views/example/List.vue')
 const detail       = () => import('./views/example/Detail.vue')
 const charts       = () => import('./views/example/Charts.vue')
+const dashboard    = () => import('./views/example/Dashboard.vue')
 
 
 // 商城
@@ -266,6 +267,15 @@ export default new Router({
           component: charts,
           meta: {
             routerName: '图表页 Charts',
+            showNavLayout: true,
+          },
+        },
+        {
+          path: 'dashboard',
+          name: 'dashboard',
+          component: dashboard,
+          meta: {
+            routerName: '工作台 Dashboard',
             showNavLayout: true,
           },
         },

@@ -104,7 +104,7 @@ this.$store.commit('changeStatus', {key: 'loading', value: false})</pre>
       &lt;div&gt;
     &lt;div&gt;
   &lt;/el-card&gt;</pre>
-        <el-row :gutter="15">
+        <el-row :gutter="15" class="info-card-row">
           <el-col class="padding-t-15" :xs="12" :sm="12" :md="12" :lg="8" :xl="6" v-for="item in 8" :key="`${item}card`">
             <el-card class="card-item" shadow="never">
               <el-image fit="cover" src="http://img.bqatj.com/img/60d6a742a8433fe4.jpg"/>
