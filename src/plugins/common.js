@@ -5,8 +5,8 @@ import qs from 'qs'
 const Vue = new vue({ router, store }) // 注册router, 实例中调用
 
 export default {
-  // basePath: `${window.location.origin}/apis/`,
-  basePath:   'https://test1meeting.yuyankeji.cn/',
+  basePath: `${window.location.origin}/apis/`,
+  // basePath:   'https://test1meeting.yuyankeji.cn/',
   uploadPath: `${window.location.origin}/apis/meeting/meeting/appImg`,
   filePath:   `https://test1meeting.yuyankeji.cn/`,
   // 邮箱

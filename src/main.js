@@ -12,6 +12,7 @@ Vue.config.productionTip = false
 
 //引用公用js
 import commonJS from "./plugins/common.js"
+window.$basePath = commonJS.basePath
 Vue.prototype.$common = commonJS;
 
 // 全局引入axios 并配置
@@ -44,6 +45,11 @@ Vue.prototype.$axios = axios;
 //request 拦截 添加公用url头
 Vue.prototype.$axios.interceptors.request.use(
   config => {
+    // 简单粗暴式解决方案 传入非完整url时 , 将自动拼接
+    var reg = /^((ht|f)tps?):\/\/([\w-]+(\.[\w-]+)*\/?)+(\?([\w\-\.,@?^=%&:\/~\+#]*)+)?$/
+    if(!reg.test(config.url)) {
+      config.url = window.$basePath + config.url
+    }
     return config
   }, 
   error => {

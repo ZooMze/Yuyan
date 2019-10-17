@@ -10,6 +10,8 @@
     <pre> {{ verificationCode }}</pre>
     <p>验证码的主要繁琐点在于计时器的产生和还原 , 同时为了适应表单项做双向绑定 , 依托于自定义组件的 <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#自定义组件的-v-model">v-model</a> 实现</p>
     <p>你可以像element的其他表单项组件一样自由地使用 <code>&lt;verification-code&gt;</code></p>
+    <p>详情请参考源码  <code>src/components/VerificationCode.vue</code></p>
+
     <p>示例 :</p>
     <el-form :model="formCode" :rules="formCodeRules" size="small" ref="formCode" label-width="100px" label-position="left" label-suffix="：">
       <el-form-item label="验证码凭证">
@@ -29,6 +31,7 @@
 
     <h3>上传</h3>
     <p>直接定义一套完整的图片上传内容, 同时可以实现同页面下多个上传组件已最少的代码行数进行工作</p>
+    <p>详情请参考源码  <code>src/views/components/Index.vue</code></p>
 
     <el-form :model="formUpload" :rules="formUploadRules" size="small" ref="formUpload" label-width="100px" label-position="left" label-suffix="：">
       <el-form-item label="图片" prop="imgList">
@@ -56,7 +59,7 @@
 
     <h3>标签编辑</h3>
     <p>实现动态编辑标签项 , 在标签变化时回调事件 <code>@changed</code></p>
-    <p>本例也展示了多个重复组件时 , 便捷地进行表单验证 , 详见源码</p>
+    <p>本例也展示了多个重复组件时 , 便捷地进行表单验证 , 详情请参考源码 <code>src/components/TagEditor.vue</code></p>
     <el-form :model="formTags" :rules="formTagsRules" size="small" ref="formTags" label-width="100px" label-position="left" label-suffix="：">
       <el-form-item label="标签项" prop="tags">
         <tag-editor ref="formTags" :tags="formTags.tags" @changed="checkValidate('formTags', 'tags')"></tag-editor>
@@ -74,16 +77,28 @@
     <div class="warning-area">
       <p>当重复使用多个相同组件时 , 最好使用不同的 <code>ref="xxx"</code> 来区分</p>
     </div>
+
+    <h3>图文列表</h3>
+    <p>较为常见的列表展现形式 , 以图片作为背景的列表 , 鼠标浮动显示文本内容( 也可以设置为常驻显示 <code>trigger="always"</code> )</p>
+    <p>组件除了源数据字段以外都非必传 , 并已配置好默认值 , 详情请参考源码 <code>src/components/ImgList.vue</code></p>
+    <p>在 <el-button type="text" size="mini" @click="$router.push({name: 'dashboard'})">工作台 Dashboard</el-button> 中查看实际应用效果吧~</p>
+    <img-list :list="listData" trigger="always"></img-list>
+    <img-list :list="listData2" trigger="hover" statusKey="status2" titleKey="title2" bottomKey="bottom2"></img-list>
+    <div class="tip-area">
+      <p>本组件触发机制实则有两个触发源 , 分别为 底部文字 和 背部图片</p>
+    </div>
   </div>
 </template>
 
 <script>
   import verificationCode from '@/VerificationCode.vue'
   import tagEditor from '@/TagEditor.vue'
+  import imgList from '@/ImgList.vue'
   export default {
     components: {
       'verification-code': verificationCode,
-      'tag-editor': tagEditor
+      'tag-editor': tagEditor,
+      'img-list': imgList
     },
     watch:{
       'formTags.tags': {
@@ -102,6 +117,19 @@
         }
       };
       return {
+        listData: [
+          {status: '', title: '这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示', bottom: ''},
+          {status: '', title: '这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示', bottom: '中国·四川·成都'},
+          {status: '状态', title: '这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示', bottom: ''},
+          {status: '状态', title: '这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示', bottom: '中国·四川·成都'}
+        ],
+        listData2: [
+          {status2: '2状态', title2: '2这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示', bottom2: '2中国·四川·成都'},
+          {status2: '2状态', title2: '', bottom2: '2中国·四川·成都'},
+          {status2: '2状态', title2: '2这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示', bottom2: '2中国·四川·成都'},
+          {status2: '2状态', title2: '2这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示这是标题并且很长太多不会完全显示', bottom2: '2中国·四川·成都'}
+        ],
+
         verificationCode: `import verificationCode from '@/VerificationCode.vue'
     ...
     components: {

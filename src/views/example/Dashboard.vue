@@ -3,7 +3,6 @@
     <el-header>
       <h3>工作台 Dashboard</h3> 
     </el-header>
-    
     <el-main>
       <el-row :gutter="15">
         <!-- 左侧 -->
@@ -18,21 +17,20 @@
             <el-col :span="24">
               <div class="block-wrap">
                 <h4>相关信息</h4>
-                <el-row :gutter="15" class="image-card-row">
-                  <el-col :span="6" v-for="item in 8">
-                    <el-card shadow="hover">
-                      <el-image fit="cover" src="http://photocdn.sohu.com/20120625/Img346436473.jpg"/>
-                    </el-card>
-                  </el-col>
-                </el-row>
+                <img-list :list="listData" trigger="hover"></img-list>
+              </div>
+            </el-col>
+            <el-col :span="24">
+              <div class="block-wrap">
+                <h4>相关信息2</h4>
               </div>
             </el-col>
           </el-row>
         </el-col>
         <!-- 右侧 -->
         <el-col :span="6">
-          <div class="block-wrap" v-for="item in 3">
-            <p>121</p>
+          <div class="block-wrap">
+            <weather></weather>
           </div>
         </el-col>
       </el-row>
@@ -41,12 +39,20 @@
   </el-container>
 </template>
 <script>
+  import imgList from '@/ImgList.vue'
+  import weather from '@/Weather.vue'
   export default {
+    components: {
+      'img-list': imgList,
+      'weather': weather
+    },
     data () {
       return {
+        listData: [{name: '名称'},{name: '名称'},{name: '名称'},{name: '名称'},{name: '名称'},{name: '名称'},{name: '名称'}],
       }
     },
     mounted () {
+      
     },
     methods: {
     }

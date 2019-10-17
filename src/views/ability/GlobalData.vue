@@ -7,6 +7,7 @@
     <p>全局的基本变量（区别于 <a href="https://vuex.vuejs.org/zh/" target="_blank">Vuex</a> ）和方法函数</p>
     
     <p>具体包含的内容请至 <code>src/plugins/common.js</code> 中查看 , 此处不再赘述</p>
+    <el-button type="primary" @click="request">测试请求</el-button>
     <div class="warning-area">
       <p>请勿修改 <code>$common</code> 内的数据和重定义方法 , 尽管他们是可以被重定义的</p>
     </div>
@@ -90,6 +91,16 @@ checkAuthority(id) {
       console.log(this.$store.state.pagination.pageNum)
     },
     methods: {
+      request() {
+        let config = {
+          url: 'meeting/admin_login/adminLogin'
+        }
+        this.$axios(config).then(res => {
+          this.$message.success(res.msg)
+        }).catch(err => {
+          this.$message.error(err.msg)
+        })
+      },
       pageNumChange(val) {
         this.$store.commit('changePage', val)
         this.$message(`当前点击了第 ${val} 页`)
