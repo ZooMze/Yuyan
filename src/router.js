@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// 解决重复router会报错的问题
+// https://www.cnblogs.com/rever/p/11577322.html
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
+
 // 登录
 const Login = () => import('./views/Login.vue')
 

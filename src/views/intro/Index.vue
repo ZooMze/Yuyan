@@ -35,9 +35,13 @@
       return {
         activities: [
           {
+            content: '组件 添加了 图片列表 天气组件 , 修改了拦截器',
+            timestamp: '2019-10-17',
+            type: 'primary',
+          },
+          {
             content: '组件 添加了 标签编辑功能, 添加了工作台实例',
             timestamp: '2019-10-16',
-            type: 'primary',
           },
           {
             content: '添加了 组件',

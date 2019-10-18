@@ -29,6 +29,10 @@
     <el-main>
       <div class="block-wrap">
         <pre> {{ block }} </pre>
+
+        <p>搜索表单分为两种展现形式 , <strong>仅含关键字查询</strong> 和 <strong>多重条件查询</strong></p>
+        <h4>多重条件查询:</h4>
+
         <el-form
           :model="searchForm"
           ref="searchForm"
@@ -81,14 +85,17 @@
             </el-col>
           </el-row>
         </el-form>
-
-        <div class="tip-area">
-          <p>搜索表单复杂度根据产品有所不同 , 为了尽量展现最好的显示效果 , 搜索表单需要做到响应式</p>
-          <p>提供了一套简单泛用性较广的响应式方案 </p>
-          <p>响应代码: <code>:span="8" :xs="24" :sm="24" :md="12" :lg="8" :xl="8"</code></p>
-        </div>
-
         <el-button icon="el-icon-plus" class="margin-b-15" type="primary" size="small">添 加</el-button>
+
+        <h4>仅含关键字查询:</h4>
+        <div>
+          <el-button icon="el-icon-plus" class="margin-b-15" type="primary" size="small">添 加</el-button>
+          <el-form :model="singleSearchForm" ref="singleSearchForm" label-width="80px" size="small" label-suffix="：">
+              <el-form-item label="关键字">
+                  <el-input v-model="singleSearchForm.keyword"></el-input>
+              </el-form-item>
+          </el-form>
+        </div>
         <el-table :data="tableData">
           <el-table-column v-for="col in columns"
             :prop="col.id"
@@ -105,6 +112,11 @@
           </template>
         </el-table-column>
         </el-table>
+        <div class="tip-area">
+          <p>搜索表单复杂度根据产品有所不同 , 为了尽量展现最好的显示效果 , 搜索表单需要做到响应式</p>
+          <p>提供了一套简单泛用性较广的响应式方案 </p>
+          <p>响应代码: <code>:span="8" :xs="24" :sm="24" :md="12" :lg="8" :xl="8"</code></p>
+        </div>
         <el-pagination
           class="margin-t-15"
           :current-page="$store.state.pagination.pageNum"
@@ -146,6 +158,9 @@
           keyword: '',
           check: [],
           check2: []
+        },
+        singleSearchForm: {
+          keyword: ''
         },
         tableData: [
           {
