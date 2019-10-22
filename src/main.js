@@ -17,7 +17,9 @@ Vue.prototype.$common = commonJS;
 
 // 全局引入axios 并配置
 import axios from 'axios'
+// 全局引入qs
 import qs from 'qs'
+Vue.prototype.$qs = qs;
 
 //引入js-md5
 import md5 from 'js-md5';

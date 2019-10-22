@@ -33,16 +33,26 @@
     <p>直接定义一套完整的图片上传内容, 同时可以实现同页面下多个上传组件已最少的代码行数进行工作</p>
     <p>详情请参考源码  <code>src/views/components/Index.vue</code></p>
 
-    <el-form :model="formUpload" :rules="formUploadRules" size="small" ref="formUpload" label-width="100px" label-position="left" label-suffix="：">
+    <el-form
+      :model="formUpload"
+      :rules="formUploadRules"
+      size="small"
+      ref="formUpload"
+      label-width="100px"
+      label-position="left"
+      label-suffix="：">
       <el-form-item label="图片" prop="imgList">
+        <!-- 如需要控制最后的上传按钮 , 请根据文件长度控制class -->
         <el-upload
+          :limit="2"
+          :class="{'hide-icon': formUpload.imgList.length >= 2}"
           :action="`${$common.basePath}meeting/meeting/appImg`"
           :file-list="formUpload.imgList"
           list-type="picture-card"
           :on-success="(response, file, fileList) => {handleSuccess(response, file, fileList, 'formUpload')}"
-          :on-remove="(file, fileList) => {handleRemove(response, file, fileList, 'formUpload')}"
+          :on-remove="(file, fileList) => {handleRemove(file, fileList, 'formUpload')}"
           :on-error="handleError">
-          <i class="el-icon-plus"></i>
+          <i class="el-icon-plus" :class="{'hide-icon': formUpload.imgList.length >= 2}"></i>
         </el-upload>
         <!-- <el-dialog :visible.sync="dialogVisible">
           <img width="100%" :src="dialogImageUrl" alt="">
@@ -55,6 +65,7 @@
     <div class="tip-area">
       <p>上传组件即使封装为一行代码的组件, 仍需要响应多个事件 , 所以作为复用代码块进行使用</p>
       <p>使用时需要放入关联的事件回调</p>
+      <p>如果需要做到达到limit限制后隐藏上传按钮 , 请自行根据当前文件长度进行判断 添加类进行样式控制 代码: <code>:class="{'hide-icon': *imgList*.length >= *limit*}"</code></p>
     </div>
 
     <h3>标签编辑</h3>
@@ -182,7 +193,6 @@
         this.checkValidate(formName)
       },
       handleRemove(file, fileList, formName) {
-        debugger
         this[formName].imgList = fileList
         this.checkValidate(formName)
       },

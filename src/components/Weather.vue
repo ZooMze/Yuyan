@@ -44,12 +44,12 @@
       this.$axios.get('https://free-api.heweather.net/s6/weather/now?location=chengdu&key=9e3e7ca0608e456d9ee85cb0047c7ae7').then()
       .catch(err => {
         this.weather = err.HeWeather6[0] || null
-      this.loadingNow = false
+        this.loadingNow = false
       })
       this.$axios.get('https://free-api.heweather.net/s6/weather/forecast?location=chengdu&key=9e3e7ca0608e456d9ee85cb0047c7ae7').then()
       .catch(err => {
         this.weatherForcast = err.HeWeather6[0] || null
-      this.loadingForcast = false
+        this.loadingForcast = false
       })
     },
     methods: {

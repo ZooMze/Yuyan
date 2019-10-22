@@ -155,13 +155,18 @@ formatNumber(n) {
 
   },
   /**
-   * 根据日期字符串获取星期几
-   * @param dateString 日期字符串（如：2016-12-29），为空时为用户电脑当前日期
+   * 根据时间获取星期字符串
+   * @param timeStamp 时间戳
    * @returns {String}
    */
-  getWeek (dateString) {
-    var date
-    date = new Date(dateString)
+  getWeek (timeStamp) {
+    let date
+    if(timeStamp) {
+      date = new Date(timeStamp)
+    } else {
+      date = new Date()
+    }
+    
     return '星期' + '日一二三四五六'.charAt(date.getDay())
   },
   /**

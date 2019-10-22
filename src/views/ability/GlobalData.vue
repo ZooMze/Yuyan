@@ -16,6 +16,10 @@
     <p>全局的XHRequest , 并注册了(请求/响应)拦截器</p>
     <p>使用方式与自行引入axios无异 , 更多文档请查阅 <a href="http://www.axios-js.com/zh-cn/docs/">axios</a></p>
 
+    <h3>$qs</h3>
+    <p>格式化、解析和序列化字符串的库</p>
+    <p>调用方法和说明可查阅官方文档 <a href="https://www.npmjs.com/package/qs">qs</a></p>
+
     <h3>$echarts</h3>
     <p>全局快速生成图表内容的方法函数</p>
     <p>点击这里预览 <i class="el-icon-right margin-r-15"></i><el-button type="text" @click="$router.push({name: 'charts'})" size="small">图表 Charts</el-button></p>
@@ -27,6 +31,7 @@
       ="el-icon-search">获取当前的md5</el-button>
     </el-input>
     <p class="margin-t-15">生成的md5为 : <strong>{{ md5 }}</strong></p>
+    <p>官方文档 <a href="https://www.npmjs.com/package/js-md5">js-md5</a></p>
     
     <h3>参与开发</h3>
     <p>开发者可以自行创建公用 <code>.js</code> , 命名规则不同于vue组件 , 采用驼峰命名法则</p>

@@ -6,6 +6,79 @@
     
     <el-main>
       <div class="block-wrap">
+        <h3 class="block-label">地图 BaiduMap</h3>
+        <p>实现基础的地图需求功能</p>
+        <p>更多用法请参考 <a href="https://dafrok.github.io/vue-baidu-map/#/zh/start/usage">Vue-Baidu-Map</a></p>
+        <!-- <p><el-button type="primary" @click="getData">测试数据</el-button></p> -->
+        <!-- <baidu-map
+          class="bm-view margin-b-15"
+          :center="{lng: 104.06, lat: 30.67}"
+          :zoom="13">
+          <bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="true"></bm-overview-map>
+          <bm-navigation anchor="BMAP_ANCHOR_TOP_LEFT"></bm-navigation>
+        </baidu-map> -->
+        <p>组件接受动态数据 , 意味着你可以动态地直接修改内容</p>
+        <p>下例展示了动态搜索关键字地区检索 , 以及拖动地图进行中间点取经纬度</p>
+        <div>
+          <el-form :model="locationForm" ref="locationForm" label-width="90px" label-suffix="：">
+            <el-row :gutter="30">
+              <el-col :span="8" :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
+                <el-form-item label="地区">
+                  <el-input v-model.trim="locationForm.location" clearable placeholder="请输入地区名称"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8" :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
+                <el-form-item label="关键字">
+                  <el-input v-model.trim="locationForm.keyword" clearable placeholder="请输入关键字进行动态检索"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :span="24">
+                <el-form-item label="详细地址">
+                  <el-input v-model.trim="locationForm.detailLocation" clearable  placeholder="输入地址详细 或 点击左侧搜索列表进行快速填充"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8" :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
+                <el-form-item label="中央经度">
+                  <el-input disabled v-model.number="locationForm.center.lng"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8" :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
+                <el-form-item label="中央纬度">
+                  <el-input disabled v-model.number="locationForm.center.lat"></el-input>
+                </el-form-item>
+              </el-col>
+            </el-row>
+          </el-form>
+
+          <baidu-map 
+            class="bm-view"
+            :center="locationForm.center"
+            :zoom="locationForm.zoom"
+            @moving="syncCenterAndZoom"
+            @moveend="syncCenterAndZoom"
+            @zoomend="syncCenterAndZoom">
+            <bm-local-search
+              class="result"
+              :keyword="locationForm.keyword"
+              :auto-viewport="true"
+              :location="locationForm.location"
+              @infohtmlset="call"/>
+            <bm-marker :position="locationForm.center" :dragging="true"></bm-marker>
+            <bm-navigation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" type="BMAP_NAVIGATION_CONTROL_LARGE"></bm-navigation>
+          </baidu-map>
+        </div>
+        <div class="tip-area">
+          <p>地图组件被注册在全局下 , 全局直接使用</p>
+          <p>左侧搜索结果联想的定位是由CSS控制 , 并非原本的展示模式</p>
+        </div>
+        <div class="warning-area">
+          <h4 class="margin-b-0">滚轮缩放 <code>:scroll-wheel-zoom="true"</code> 的问题</h4>
+          <p>由于百度地图默认定位问题 , 页面中出现滚动条时 , 滚轮缩放会产生位置偏移 , 偏移量就是滚动的长度 , 此功能需 <strong>谨慎使用</strong> !</p>
+          <p>通常地图组件占据的页面宽度较宽甚至横跨了整个页面宽度 , 请结合页面展示情况决定是否使用或者协商调整页面布局 , 因为它会干扰到用户正常的滚轮行为</p>
+        </div>
+      </div>
+
+      <div class="block-wrap">
         <h3 class="block-label">图表 ECharts</h3>
         <p>图表内容通常是模块化 , 包含在 <code>&lt;div class="block-wrap"&gt;</code> 中</p>
         <p>更多用法请参考 <a href="https://www.echartsjs.com/examples/zh/index.html">Echarts</a></p>
@@ -27,28 +100,6 @@
         </el-col>
       </el-row>
 
-      <div class="block-wrap">
-        <h3 class="block-label">地图 BaiduMap</h3>
-        <p>实现基础的地图需求功能</p>
-        <p>更多用法请参考 <a href="https://dafrok.github.io/vue-baidu-map/#/zh/start/usage">Vue-Baidu-Map</a></p>
-        <!-- <p><el-button type="primary" @click="getData">测试数据</el-button></p> -->
-        <baidu-map
-          class="bm-view margin-b-15"
-          :center="{lng: 104.06, lat: 30.67}"
-          :zoom="13">
-          <bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="true"></bm-overview-map>
-          <bm-navigation anchor="BMAP_ANCHOR_TOP_LEFT"></bm-navigation>
-        </baidu-map>
-        <div class="tip-area">
-          <p>地图组件被注册在全局下 , 全局直接使用</p>
-        </div>
-        <div class="warning-area">
-          <h4 class="margin-b-0">滚轮缩放 <code>:scroll-wheel-zoom="true"</code> 的问题</h4>
-          <p>由于百度地图默认定位问题 , 页面中出现滚动条时 , 滚轮缩放会产生位置偏移 , 偏移量就是滚动的长度 , 此功能需 <strong>谨慎使用</strong> !</p>
-          <p>通常地图组件占据的页面宽度较宽甚至横跨了整个页面宽度 , 请结合页面展示情况决定是否使用或者协商调整页面布局 , 因为它会干扰到用户正常的滚轮行为</p>
-        </div>
-        
-      </div>
     </el-main>
 
   </el-container>
@@ -89,7 +140,17 @@
             id: 'des',
             label: '描述',
           }
-        ]
+        ],
+        locationForm: {
+          center: {
+            lng: 104.067765,
+            lat: 30.552163
+          },
+          zoom: 15,
+          location: '北京',
+          keyword: '百度',
+          detailLocation: '',
+        }
       }
     },
     mounted () {
@@ -97,6 +158,22 @@
       this.initEchartsBar()
     },
     methods: {
+      /**
+       * 获取中心点
+       * @param  {[type]} e [description]
+       * @return {[type]}   [description]
+       */
+      call(e) {
+        this.$message(`所选点的经纬度为${JSON.stringify(e.point)}`)
+        this.locationForm.detailLocation = e.address
+        this.locationForm.center = e.point
+      },
+      syncCenterAndZoom (e) {
+        const {lng, lat} = e.target.getCenter()
+        this.locationForm.center.lng = lng
+        this.locationForm.center.lat = lat
+        this.locationForm.zoom = e.target.getZoom()
+      },
       /**
        * 基于准备好的dom，初始化echarts实例
        * @return {[type]} [description]
@@ -299,7 +376,17 @@
     margin-top: 20px;
   }
   .bm-view {
+    position: relative;
     width: 100%;
     height: 500px;
+  }
+  .result {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    max-height: 430px!important;
+    max-width: 300px!important;
+    overflow: auto;
+    background: #fff;
   }
 </style>

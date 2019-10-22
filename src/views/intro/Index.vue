@@ -17,7 +17,8 @@
     <p><i class="el-icon-back"></i> 点击左侧导航开始浏览~</p>
 
     <h3>更新日志</h3>
-    <el-timeline :reverse="false">
+    <p>请前往 <a href="https://github.com/ZooMze/Yuyan">GitHub</a> 查看代码更新日志以及源码</p>
+    <!-- <el-timeline :reverse="false">
       <el-timeline-item
         v-for="(activity, index) in activities"
         :key="index"
@@ -25,7 +26,7 @@
         :timestamp="activity.timestamp">
         {{activity.content}}
       </el-timeline-item>
-    </el-timeline>
+    </el-timeline> -->
   </div>
 </template>
 

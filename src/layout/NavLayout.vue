@@ -16,8 +16,30 @@
           
           <!-- 用户区域 -->
           <div class="user-area">
+            <p class="margin-b-0 margin-lr-15">{{ dateInfo }}</p>
+            <template v-if="weather">
+              <div class="weather-in-top">
+                <p class="margin-b-0 margin-lr-15">{{ weather.basic.admin_area }} - {{ weather.basic.parent_city }}</p>
+                <el-image fit="scale-down" :src="returnImgUrl(weather.now.cond_code)"/>
+                <p class="margin-b-0 margin-lr-15">{{ weather.now.tmp }}℃ / {{ weather.now.cond_txt }} </p>
+              </div>
+            </template>
+            <template v-else>
+              <p class="margin-b-0 margin-r-15">获取天气失败</p>
+            </template>
             <el-badge is-dot class="item"><el-avatar shape="square" :size="35" icon="el-icon-user-solid"></el-avatar></el-badge>
-            <span class="user-name">{{ $store.state.userData.user_name || "ZooMze"}}</span>
+            <el-dropdown @command="handleCommand">
+              <span class="user-name">
+                {{ $store.state.userData.user_name || "ZooMze"}}<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="a">选项1</el-dropdown-item>
+                <el-dropdown-item command="b">选项2</el-dropdown-item>
+                <el-dropdown-item command="c">选项3</el-dropdown-item>
+                <el-dropdown-item command="d" disabled>选项4</el-dropdown-item>
+                <el-dropdown-item command="e" divided>选项5</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
             <i class="fa fa-sign-out" @click="$router.push({name: 'login'})"></i>
           </div>
         </div>
@@ -41,15 +63,25 @@
     data() {
       return {
         folded: false,
+
+        loadingNow: true,
+        weather: null,
       }
     },
     watch: {
     },
     created () { //页面刷新时 检测路由 并设置activeIndex
       this.activeIndex = this.$route.meta.navIndex
+      let date = new Date()
+      this.dateInfo = `${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日 ${this.$common.getWeek()}` || '0'
     },
     mounted() {
-      
+      // 天气为第三方接口 , 返回结构与框架要求有差异 , 故直接在错误回调中处理
+      this.$axios.get('https://free-api.heweather.net/s6/weather/now?location=chengdu&key=9e3e7ca0608e456d9ee85cb0047c7ae7').then()
+      .catch(err => {
+        this.weather = err.HeWeather6[0] || null
+        this.loadingNow = false
+      })
     },
     methods: {
       /**
@@ -97,6 +129,10 @@
         if(this.$store.state.historyRoute.name) {
           this.$router.push({name: this.$store.state.historyRoute.name})
         }
+      },
+      handleCommand() {},
+      returnImgUrl (code) {
+        return require(`../assets/imgs/weather_icon/${code}.png`)
       }
     },
   }
