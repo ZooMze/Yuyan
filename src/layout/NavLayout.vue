@@ -7,8 +7,8 @@
       </div>
       <div class="right-area" v-loading="$store.state.loading">
         <div class="body-top">
-          <i v-if="!folded" class="el-icon-s-fold fold-button" @click="foldMenu(false)"></i>
-          <i v-if="folded" class="el-icon-s-unfold fold-button" @click="foldMenu(true)"></i>
+          <i v-if="!folded" class="el-icon-s-fold fold-button hover-cursor" @click="foldMenu(false)"></i>
+          <i v-if="folded" class="el-icon-s-unfold fold-button hover-cursor" @click="foldMenu(true)"></i>
 
           <el-tooltip v-if="$store.state.scrollTop > 111 && $route.meta.detail && this.$store.state.historyRoute.name" effect="dark" :content="`返回 ${$store.state.historyRoute.routerName}`" placement="right-start">
             <el-button class="button-in-head" size="large" icon="el-icon-back" @click="backToLast" circle></el-button>
@@ -40,7 +40,10 @@
                 <el-dropdown-item command="e" divided>选项5</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <i class="fa fa-sign-out" @click="$router.push({name: 'login'})"></i>
+            <el-tooltip content="退出登录">
+              <i class="fa fa-sign-out hover-cursor" @click="$router.push({name: 'login'})"></i>
+            </el-tooltip>
+            
           </div>
         </div>
         <div class="router-container" :class="{'has-folded': folded}"  @scroll="pageScroll">
