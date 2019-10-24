@@ -1,0 +1,58 @@
+/**
+ * responsive-layout 的样式
+ */
+.responsive-wrap {
+  background: red;
+  .responsive-container {
+    margin: 15px;
+    background: #fff;
+  }
+  .navigation-bar.el-menu--horizontal .logo{
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 60px!important;
+    width: 120px;
+    img {
+      height: 100%;
+    }
+    span {
+      color: #fff;
+    }
+  }
+  .navigation-bar.el-menu--collapse { /* 为兼容导航折叠后文字依旧存在的问题*/
+    .el-submenu__title {
+      color: #001324!important;
+      overflow-x: hidden; 
+      i {
+        color: #909399!important;
+      }
+    }
+    .el-submenu.is-active .el-submenu__title{
+      background: #0E82EB!important;
+      color: #0E82EB!important;
+      i {
+        color: #fff!important;
+      }
+    }
+  }
+  .navigation-bar>.el-submenu.is-active, .navigation-bar>.el-submenu.is-active > .el-submenu__title:first-child {
+    background: #0E82EB!important;
+    i {
+      color: #fff!important;
+    }
+  }
+  .navigation-bar {
+    &.el-menu--collapse {
+      width: 64px;
+    }
+    .el-menu-item.is-active.single { // 单个节点
+      background-color: #0E82EB!important;
+      color: #fff;
+    }
+    .el-submenu .el-menu .el-menu-item {
+      padding-left: 48px!important;
+    }
+  }
+}

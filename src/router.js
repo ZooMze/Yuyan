@@ -46,6 +46,8 @@ const detail       = () => import('./views/example/Detail.vue')
 const charts       = () => import('./views/example/Charts.vue')
 const dashboard    = () => import('./views/example/Dashboard.vue')
 
+// Responsive
+const responsive = () => import('./views/responsive/Index.vue')
 
 // 商城
 // -- 订单管理
@@ -90,6 +92,17 @@ export default new Router({
         routerName: '引言 Intro',
         icon: 'el-icon-guide',
         showNavLayout: true
+      },
+      children: []
+    },
+    {
+      path: '/responsive',
+      name: 'responsive',
+      component: responsive,
+      meta: {
+        routerName: '响应式 Responsive',
+        showNavLayout: false,
+        showResponsiveLayout: true,
       },
       children: []
     },
@@ -370,20 +383,21 @@ export default new Router({
     //     },
     //   ]
     // },
+    
     {
       path: '/login',
       name: 'login',
-      routerName: "登录页",
       component: Login,
       meta: {
+        routerName: "登录页",
         showNavLayout: false
       }
     },
     {
       path: "",
       redirect: "/intro",
-      routerName: "重定向router",
       meta: {
+        routerName: "重定向router",
         showNavLayout: false
       },
     },

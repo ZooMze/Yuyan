@@ -1,6 +1,5 @@
 <template>
   <div class="main-container">
-    
     <div class="body">
       <div class="left-nav">
         <nav-bar :activeIndex="activeIndex" :folded="folded"></nav-bar>
@@ -66,7 +65,6 @@
     data() {
       return {
         folded: false,
-
         loadingNow: true,
         weather: null,
       }

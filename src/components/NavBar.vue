@@ -8,8 +8,8 @@
     background-color="#001324"
     text-color="#FFFFFF"
     :collapse="folded"
-    mode="vertical">
-    <!-- 仅渲染含children && showNavLayout 的节点 -->
+    :mode="mode">
+    <!-- 仅渲染含children && != BlankLayout 的节点 -->
     <!-- logo为特殊节点 属于导航内 但不是router的节点 -->
     <div index="logo" class="logo">
       <img src="../assets/imgs/logo_mini_white_height.png" class="no-fold-img"></img>
@@ -41,7 +41,11 @@
       folded: {
         type: Boolean,
         require: true
-      }
+      },
+      mode: {
+        type: String,
+        default: 'vertical'
+      },
     },
     watch: {
       // activeIndex: { //监听活动index变化 需要刷新到二级导航第一个

@@ -13,11 +13,11 @@
   <el-row :gutter="15" class="image-card-row">
     <el-col :span="6" v-for="(item, index) in list" :key="`${index}图片列表`">
       <el-card shadow="hover">
-        <div @mouseenter.stop="showInfo = index" @mouseleave.stop
+        <div @mouseenter="showInfo = index" @mouseleave
         ="leaveCard">
           <el-image fit="cover"  src="http://photocdn.sohu.com/20120625/Img346436473.jpg"/>
           <!-- 完整浮层内容 -->
-          <transition name="slide-up">
+          <transition name="slide-down">
             <div
               v-show="(showInfo == index && trigger == 'hover') || trigger == 'always'"
               class="hover-wrap mouse-class">
@@ -27,7 +27,7 @@
             </div>
           </transition>
           <!-- 底部缩略标题 -->
-          <transition name="slide-down">
+          <transition name="slide-up">
             <div
               v-show="showInfo != index && trigger == 'hover'"
               class="brief"
@@ -67,7 +67,7 @@
     watch: {
       showInfo: {
         handler(newV, oldV) {
-          console.log(oldV, newV)
+          
         }
       }
     },
@@ -78,7 +78,6 @@
     },
     methods: {
       leaveCard () {
-        
         this.showInfo = -1
       }
     }

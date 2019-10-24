@@ -10,6 +10,7 @@
 <script>
   import BlankLayout from "./layout/BlankLayout.vue";
   import NavLayout from "./layout/NavLayout.vue"
+  import ResponsiveLayout from "./layout/ResponsiveLayout.vue"
 
   export default {
     props: {
@@ -48,7 +49,8 @@
     },
     components: {
       "nav-layout":   NavLayout,                                    
-      "blank-layout": BlankLayout
+      "blank-layout": BlankLayout,
+      "responsive-layout": ResponsiveLayout
     },
 		data() {
       return {
@@ -92,11 +94,3 @@
     }
   }
 </script>
-
-<style lang="less">
-  #app, body{
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-</style>

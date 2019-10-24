@@ -125,9 +125,11 @@ new Vue({
   render: function (createElement) {
     let routeMeta = this.$route.meta
     let props = {}
-    // 控制是否显示 带导航的布局 || 空白布局
+    // 控制是否显示 带导航的布局 || 响应式布局 || 空白布局
     if (routeMeta && routeMeta.showNavLayout) {
       props.layout = 'nav-layout'
+    } else if (routeMeta && routeMeta.showResponsiveLayout) {
+      props.layout = 'responsive-layout'
     } else {
       props.layout = 'blank-layout'
     }
