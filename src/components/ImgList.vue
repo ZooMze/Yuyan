@@ -10,7 +10,7 @@
   bottomKey: String // 左下角补充信息所对应的字段 默认 'bottom'
  */
 <template>
-  <el-row :gutter="15" class="image-card-row" @mouseleave="showInfo = -1">
+  <el-row :gutter="15" class="image-card-row" @mouseleave="leave">
     <el-col :span="6" v-for="(item, index) in list" :key="`${index}图片列表`">
       <el-card shadow="hover">
         <el-image fit="cover" @mouseenter.stop="showInfo = index" src="http://photocdn.sohu.com/20120625/Img346436473.jpg"/>
@@ -18,8 +18,8 @@
         <transition name="slide-up">
           <div
             v-show="(showInfo == index && trigger == 'hover') || trigger == 'always'"
-            class="hover-wrap"
-            @mouseleave="showInfo = -1">
+            class="hover-wrap mouse-class"
+            @mouseleave="leave">
             <p class="top margin-b-0"><small>{{ item[statusKey] ? item[statusKey] : '&nbsp;' }}</small></p>
             <h4 class="margin-b-0">{{ item[titleKey] ? item[titleKey] : "这是默认标题" }}</h4>
             <p class="bottom"><small>{{ item[bottomKey] ? item[bottomKey] : '&nbsp;' }}</small></p>
@@ -73,6 +73,18 @@
       return {
         showInfo: -1
       }
+    },
+    methods: {
+      leave:function(){
+        setTimeout(_ => {
+          this.showInfo = -1
+        },50)
+      }
     }
   }
 </script>
+<style type="text/css">
+  .mouse-class{
+    cursor: pointer;
+  }
+</style>
