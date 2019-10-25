@@ -35,6 +35,9 @@
   height: 100vh;
   overflow: hidden;
 }
+#app.narrow {
+  overflow-y: auto;
+}
 body {
   margin:0;
   padding: 0;
@@ -313,15 +316,15 @@ textarea.el-textarea__inner {
       overflow-x: hidden;
       box-sizing: border-box;
       width: calc(100vw - 200px);
-      animation: fold 0.25s ease-in-out;
+      animation: fold 0.2s ease-in-out;
 
       &.has-folded {
         width: calc( 100vw - 64px );
-        animation: unfold 0.25s ease-in-out;
+        animation: unfold 0.2s ease-in-out;
       }
-      & > div {
-        width: 100%!important;
-      }
+      // & > div {
+      //   width: 100%!important;
+      // }
       // &.has-folded .el-container {
       //   animation: unfoldinner 1s ease-in-out;
       // }
@@ -716,7 +719,7 @@ textarea.el-textarea__inner {
 .scale-enter,
 .scale-leave-active {
   will-change: transform;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.3s ease-in-out;
   position: absolute;
 }
 .fade-enter {

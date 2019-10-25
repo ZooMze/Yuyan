@@ -12,6 +12,7 @@ export default new Vuex.Store({
     },
     loading: false, // 全局loading
     scrollTop: 0, // 页面主体卷去的高度
+    viewWidth: 0, // 页面可用宽度
     historyRoute: { // 上一个router的信息 用于返回
       name: '', //名称
       routerName: '', // 显示的名称

@@ -9,8 +9,9 @@
     <p>本样式框架采用的是模块化布局模式, 即每个功能是一个单独的区域</p>
     <div class="margin-t-15 demo-block">
       <el-page-header class="margin-b-15" title="返回" content="页面标题"></el-page-header>
-      <h2 class="margin-b-0">功能模块1...</h2>
-      <h2 class="margin-b-0">功能模块2... <br> 功能模块2...</h2>
+      <h2 class="margin-b-15">功能模块1...<br><p>内容...</p></h2>
+      <h2 class="margin-b-15">功能模块2...<br><p>内容...</p></h2>
+      <h2 class="margin-b-0">功能模块3...<br><p class="margin-b-0">内容...</p></h2>
     </div>
     <transition name="el-fade-in-linear">
       <div v-if="visible" class="layout-modal" @click="showLayout">

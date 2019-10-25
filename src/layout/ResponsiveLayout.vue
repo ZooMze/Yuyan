@@ -1,7 +1,15 @@
 <template>
   <div class="responsive-wrap">
-    <nav-bar :activeIndex="activeIndex" :folded="folded" mode="horizontal"></nav-bar>
-    <div>
+    <transition name="fade">
+      <div>
+        <nav-bar v-show="$store.state.viewWidth > 1400" :activeIndex="activeIndex" :folded="folded" :mode="folded ? 'vertical' : 'horizontal'"></nav-bar>
+        <div v-show="$store.state.viewWidth <= 1400" class="nav-holder">
+          <!-- <img src="../assets/imgs/logo_mini_white_height.png" class=""></img> -->
+          <span>与燕科技</span>
+        </div>
+      </div>
+    </transition>
+    <div class="responsive-container">
       <router-view></router-view>
     </div>
   </div>

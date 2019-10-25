@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <!-- app被限制了滚动 在responsive模式下需要放开滚动 -->
+  <div id="app" :class="$store.state.viewWidth > 1400 ? 'wild' : 'narrow'">
     <transition name="el-fade-in-linear">
       <!-- 根据需要显示不同的布局情况 -->
       <component :is="layout"></component>
@@ -17,6 +18,11 @@
       layout: {
         type: String,
         default: "nav-layout"
+      }
+    },
+    data () {
+      return {
+        screenWidth: document.body.clientWidth, // 屏幕宽度
       }
     },
     watch: {
@@ -63,6 +69,12 @@
       // } else {
       //   this.$store.commit("saveUserData", sessionStorage.getItem("user"))
       // }
+      // 监测网页宽度变化
+      window.onresize = () => {
+        // return (() => {
+          this.$store.commit('changeStatus', {key: 'viewWidth', value: document.body.clientWidth})
+        // })()
+      }
     },
 		mounted() {
       //页面刷新 查询token 没有则不设置token

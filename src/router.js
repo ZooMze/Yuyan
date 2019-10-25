@@ -34,7 +34,7 @@ const abilityIndex   = () => import('./views/ability/Index.vue')
 const keepAlive      = () => import('./views/ability/KeepAlive.vue')
 const keepAliveInner = () => import('./views/ability/KeepAliveInner.vue')
 const authority      = () => import('./views/ability/Authority.vue')
-const globalData      = () => import('./views/ability/GlobalData.vue')
+const globalData     = () => import('./views/ability/GlobalData.vue')
 
 // Components
 const components = () => import('./views/components/Index.vue')
@@ -101,6 +101,7 @@ export default new Router({
       component: responsive,
       meta: {
         routerName: '响应式 Responsive',
+        icon: 'el-icon-rank',
         showNavLayout: false,
         showResponsiveLayout: true,
       },
