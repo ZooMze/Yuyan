@@ -11,12 +11,13 @@
     :mode="mode">
     <!-- 仅渲染含children && != BlankLayout 的节点 -->
     <!-- logo为特殊节点 属于导航内 但不是router的节点 -->
-    <div index="logo" class="logo">
+    <div v-if="!hideLogo" index="logo" class="logo">
       <img src="../assets/imgs/logo_mini_white_height.png" class="no-fold-img"></img>
       <transition name="el-zoom-in-center">
         <span v-if="!folded">与燕科技</span>
       </transition>
     </div>
+    <div v-else class="logo"></div>
     <nav-bar-item v-for="menu in navArray" :key="menu.path" :item="menu"/>
   </el-menu>
 </template>
@@ -46,6 +47,10 @@
         type: String,
         default: 'vertical'
       },
+      hideLogo: { // 隐藏图标 , 兼容IOS的橡皮筋效果
+        type: Boolean,
+        default: false
+      }
     },
     watch: {
       // activeIndex: { //监听活动index变化 需要刷新到二级导航第一个

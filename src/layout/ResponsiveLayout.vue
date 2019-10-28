@@ -1,14 +1,25 @@
 <template>
   <div class="responsive-wrap">
-    <transition name="fade">
-      <div>
-        <nav-bar v-show="$store.state.viewWidth > 1400" :activeIndex="activeIndex" :folded="folded" :mode="folded ? 'vertical' : 'horizontal'"></nav-bar>
-        <div v-show="$store.state.viewWidth <= 1400" class="nav-holder">
-          <!-- <img src="../assets/imgs/logo_mini_white_height.png" class=""></img> -->
-          <span>与燕科技</span>
+    <div class="header-wrap">
+      
+      <transition name="fade">
+        <nav-bar
+          class="responsive-nav"
+          :hideLogo="folded"
+          :class="{'overflow-show': folded, 'overflow-origin': !showFold}"
+          :activeIndex="activeIndex"
+          :folded="false"
+          :mode="folded && showFold ? 'vertical' : 'horizontal'"/>
+      </transition>
+      <div v-if="showFold" class="nav-holder">
+        <div class="logo-wrap">
+          <img src="../assets/imgs/logo_mini_white_height.png" class="logo"></img>与燕科技
         </div>
+        <i class="el-icon-more hover-cursor" @click="foldMenu"></i>
       </div>
-    </transition>
+    </div>
+
+    <div class="blank-holder"></div>
     <div class="responsive-container">
       <router-view></router-view>
     </div>
@@ -25,12 +36,30 @@
     },
     data() {
       return {
-        folded: false,
         loadingNow: true,
         weather: null,
+        showFold: true, // 页面可视宽度是否低于最小宽度 
+        folded: false, // 导航是否展开(同时决定vertical模式的导航)
       }
     },
     watch: {
+      '$store.state.viewWidth': {
+        handler(newV, oldV) {
+          this.folded = false
+          if(newV < 1400) {
+            this.showFold = true
+          } else {
+            this.showFold = false
+          }
+        }
+      }
+    },
+    activated() {
+      if(this.$store.state.viewWidth < 1400) {
+        this.showFold = true
+      } else {
+        this.showFold = false
+      }
     },
     created () { //页面刷新时 检测路由 并设置activeIndex
       this.activeIndex = this.$route.meta.navIndex
@@ -44,6 +73,11 @@
         this.weather = err.HeWeather6[0] || null
         this.loadingNow = false
       })
+      if(this.$store.state.viewWidth < 1400) {
+        this.showFold = true
+      } else {
+        this.showFold = false
+      }
     },
     methods: {
       /**
@@ -52,7 +86,7 @@
        * @return {[type]}      [description]
        */
       foldMenu(type) {
-        if(type) {
+        if(this.folded) {
           this.folded = false
         } else {
           this.folded = true

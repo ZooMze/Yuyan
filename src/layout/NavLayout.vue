@@ -2,7 +2,7 @@
   <div class="main-container">
     <div class="body">
       <div class="left-nav">
-        <nav-bar :activeIndex="activeIndex" :folded="folded"></nav-bar>
+        <nav-bar :activeIndex="activeIndex" :folded="folded" :hideLogo="false"></nav-bar>
       </div>
       <div class="right-area" v-loading="$store.state.loading">
         <div class="body-top">
