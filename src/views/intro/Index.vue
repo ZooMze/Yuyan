@@ -3,9 +3,10 @@
  */
 <template>
   <div class="default-container">
-    <h2>引言</h2>
-    <h3>与燕科技 - 前端样式框架 v1.2</h3>
+    <h2>引言 Intro</h2>
+    <h3>与燕科技 - 前端样式框架 v1.3</h3>
     <small>by ZooMze & Qingqing Yang</small>
+    <p class="text-danger margin-b-0">本框架内容面向PC进行搭建 , 也提供了移动端优先的内容 <el-button type="text" @click="$router.push({name: 'responsive'})" size="mini">响应式 Responsive</el-button> 作为指引 </p>
     <ul>
       <li><p>基于 <a href="https://element.eleme.cn/2.11/#/zh-CN" target="_blank">elmentUI</a> 进行搭建, 并对其做出本地化调整</p></li>
       <li><p>本样式框架旨在为开发人员提供更快捷高效的开发体验, 简化以至于省去繁琐的样式修改流程</p></li>

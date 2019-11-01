@@ -1,7 +1,6 @@
 <template>
   <div class="responsive-wrap">
     <div class="header-wrap">
-      
       <transition name="fade">
         <nav-bar
           class="responsive-nav"
@@ -38,7 +37,7 @@
       return {
         loadingNow: true,
         weather: null,
-        showFold: true, // 页面可视宽度是否低于最小宽度 
+        showFold: false, // 页面可视宽度是否低于最小宽度 
         folded: false, // 导航是否展开(同时决定vertical模式的导航)
       }
     },
@@ -55,7 +54,7 @@
       }
     },
     activated() {
-      if(this.$store.state.viewWidth < 1400) {
+      if(document.body.clientWidth < 1400) {
         this.showFold = true
       } else {
         this.showFold = false
@@ -73,11 +72,12 @@
         this.weather = err.HeWeather6[0] || null
         this.loadingNow = false
       })
-      if(this.$store.state.viewWidth < 1400) {
+      if(document.body.clientWidth < 1400) {
         this.showFold = true
       } else {
         this.showFold = false
       }
+      this.$message(`您当前的显示宽度为 : ${document.body.clientWidth}`)
     },
     methods: {
       /**

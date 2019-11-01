@@ -136,6 +136,10 @@
           {
             value: 'align-center',
             info: 'text-align: center;'
+          },
+          {
+            value: 'hover-cursor',
+            info: 'cursor: pointer; // 作用于伪类'
           }
         ],
         fontSizes: [

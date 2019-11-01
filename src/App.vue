@@ -14,6 +14,11 @@
   import ResponsiveLayout from "./layout/ResponsiveLayout.vue"
 
   export default {
+    components: {
+      "nav-layout":   NavLayout,                                    
+      "blank-layout": BlankLayout,
+      "responsive-layout": ResponsiveLayout
+    },
     props: {
       layout: {
         type: String,
@@ -52,15 +57,6 @@
         },
         deep: true
       }
-    },
-    components: {
-      "nav-layout":   NavLayout,                                    
-      "blank-layout": BlankLayout,
-      "responsive-layout": ResponsiveLayout
-    },
-		data() {
-      return {
-      };
     },
     created() {
       // 初始查询是否登录

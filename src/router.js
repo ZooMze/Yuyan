@@ -102,7 +102,6 @@ export default new Router({
       meta: {
         routerName: '响应式 Responsive',
         icon: 'el-icon-rank',
-        showNavLayout: false,
         showResponsiveLayout: true,
       },
       children: []
